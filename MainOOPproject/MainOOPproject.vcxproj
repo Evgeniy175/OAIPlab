@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="classes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainOOPproject.cpp" />
