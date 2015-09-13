@@ -4,6 +4,8 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	setlocale(LC_ALL, "Rus");
+
 	arrOfQuadrangles newArr(
 		3,
 		quadrilateral(quadrilateral::RECTANGLE, 2, 5),
@@ -12,6 +14,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		);
 	
 	newArr.showMaxVal();
+
+	//delete[] newArr.mainQuadrangleVar;
 
 	return 0;
 };
