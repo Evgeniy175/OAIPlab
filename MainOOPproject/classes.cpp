@@ -5,6 +5,9 @@
 
 quadrilateral::quadrilateral()
 {
+	this->firstSize = NULL;
+	this->secondSize = NULL;
+	this->typeOfQuad = -1;
 };
 
 quadrilateral::quadrilateral(short TYPE, float FIRSTSIZE, float SECONDSIZE)
@@ -47,8 +50,6 @@ quadrilateral::quadrilateral(const quadrilateral& copy)
 	this->typeOfQuad = copy.typeOfQuad;
 	this->firstSize = copy.firstSize;
 	this->secondSize = copy.secondSize;
-	//this->areaOfQuadrilateral = copy.areaOfQuadrilateral;
-	//this->perimeterOfQuadrilateral = copy.perimeterOfQuadrilateral;
 };
 
 	
@@ -88,7 +89,7 @@ float arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle) // перим
 
 void arrOfQuadrangles::showMaxVal() // поиск и вывод максимальных фигур
 {
-	arrOfQuadrangles maxQuad(												// задаём минимальные параметры
+	arrOfQuadrangles maxQuad(	// задаём минимальные параметры
 		3,
 		quadrilateral(quadrilateral::RECTANGLE, 0.00002, 0.0001),
 		quadrilateral(quadrilateral::FOURSQUARE, 0.0001, 0.0001),
@@ -135,10 +136,7 @@ arrOfQuadrangles::~arrOfQuadrangles()
 	std::cout << "---Начало работы деструктора---" << std::endl;
 	std::cout << " Удаление массива, содержащего " << this->sizeOfArray << " объектов" << std::endl;
 
-	//for (int i = 0; i < this->sizeOfArray; i++)
-	//{
-		delete[] mainQuadrangleVar;
-	//};
+	delete[] mainQuadrangleVar;
 
 	std::cout << "---Конец работы деструктора---" << std::endl << std::endl;
 };
