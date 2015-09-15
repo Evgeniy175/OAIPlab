@@ -18,7 +18,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -85,7 +85,6 @@
     <ClInclude Include="FeatureFilm.h" />
     <ClInclude Include="Film.h" />
     <ClInclude Include="News.h" />
-    <ClInclude Include="OOP3r.h" />
     <ClInclude Include="Producer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -96,7 +95,6 @@
     <ClCompile Include="Cartoon.cpp" />
     <ClCompile Include="FeatureFilm.cpp" />
     <ClCompile Include="News.cpp" />
-    <ClCompile Include="OOP3r.cpp" />
     <ClCompile Include="Producer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

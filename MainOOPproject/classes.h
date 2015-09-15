@@ -40,7 +40,7 @@ public:
 	{
 		return this->secondSize;
 	};
-	
+
 	quadrilateral(); // конструктор по умолчанию
 	quadrilateral(short TYPE, float FIRSTSIZE, float SECONDSIZE); // конструктор для заполнения данными
 	quadrilateral(quadrilateral const& copy); // конструктор копирования
@@ -48,7 +48,7 @@ public:
 
 class arrOfQuadrangles
 {
-public:	
+public:
 	quadrilateral* mainQuadrangleVar; // массив классов
 	int sizeOfArray; // количество элементов в массиве
 	arrOfQuadrangles(); // конструктор по умолчанию

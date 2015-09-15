@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "classes.h"
 #include <iostream>
-	
+
 
 quadrilateral::quadrilateral()
 {
@@ -52,7 +52,7 @@ quadrilateral::quadrilateral(const quadrilateral& copy)
 	this->secondSize = copy.secondSize;
 };
 
-	
+
 arrOfQuadrangles::arrOfQuadrangles()
 {
 };
@@ -63,7 +63,7 @@ arrOfQuadrangles::arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...
 	this->mainQuadrangleVar = new quadrilateral[this->sizeOfArray];
 
 	quadrilateral* temp = &firstQuadrangle;
-	
+
 	for (int i = 0; i != this->sizeOfArray; i++)
 		this->mainQuadrangleVar[i] = *(temp + i);
 };
