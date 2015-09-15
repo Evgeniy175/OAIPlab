@@ -42,13 +42,13 @@ quadrilateral::quadrilateral(short TYPE, float FIRSTSIZE, float SECONDSIZE)
 	std::cout << "--- онец работы конструктора---" << std::endl << std::endl;
 };
 
-quadrilateral::quadrilateral(quadrilateral const& copy)
+quadrilateral::quadrilateral(const quadrilateral& copy)
 {
 	this->typeOfQuad = copy.typeOfQuad;
 	this->firstSize = copy.firstSize;
 	this->secondSize = copy.secondSize;
-	this->areaOfQuadrilateral = copy.areaOfQuadrilateral;
-	this->perimeterOfQuadrilateral = copy.perimeterOfQuadrilateral;
+	//this->areaOfQuadrilateral = copy.areaOfQuadrilateral;
+	//this->perimeterOfQuadrilateral = copy.perimeterOfQuadrilateral;
 };
 
 	
@@ -62,37 +62,28 @@ arrOfQuadrangles::arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...
 	this->mainQuadrangleVar = new quadrilateral[this->sizeOfArray];
 
 	quadrilateral* temp = &firstQuadrangle;
-
-	int i = 0;
-
-	while (i != this->sizeOfArray)
-	{
+	
+	for (int i = 0; i != this->sizeOfArray; i++)
 		this->mainQuadrangleVar[i] = *(temp + i);
-
-		this->mainQuadrangleVar[i].perimeterOfQuadrilateral = perimeterOfQuadrangle(this->mainQuadrangleVar[i]);
-		this->mainQuadrangleVar[i].areaOfQuadrilateral = areaOfQuadrangle(this->mainQuadrangleVar[i]);
-		i++;
-	};
 };
 
 
 float arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle) // площадь фигуры
 {
-	if (quadrangle.typeOfQuad == quadrilateral::RHOMBUS)
-	{
-		return ((quadrangle.firstSize*quadrangle.secondSize) / 2);
-	};
-	return (quadrangle.firstSize)*(quadrangle.secondSize);
+	if (quadrangle.getType() == quadrilateral::RHOMBUS)
+		return ((quadrangle.getFirstSize()*quadrangle.getSecondSize()) / 2);
+
+	return (quadrangle.getFirstSize())*(quadrangle.getSecondSize());
 };
 
 
 float arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle) // периметр фигуры
 {
-	if (quadrangle.typeOfQuad == quadrilateral::RHOMBUS)
+	if (quadrangle.getType() == quadrilateral::RHOMBUS)
 	{
-		return 4 * (sqrt((quadrangle.firstSize / 2)*(quadrangle.firstSize / 2) + (quadrangle.secondSize / 2)*(quadrangle.secondSize / 2)));
+		return 4 * (sqrt((quadrangle.getFirstSize() / 2)*(quadrangle.getFirstSize() / 2) + (quadrangle.getSecondSize() / 2)*(quadrangle.getSecondSize() / 2)));
 	};
-	return 2 * (quadrangle.firstSize + quadrangle.secondSize);
+	return 2 * (quadrangle.getFirstSize() + quadrangle.getSecondSize());
 };
 
 void arrOfQuadrangles::showMaxVal() // поиск и вывод максимальных фигур
@@ -106,25 +97,37 @@ void arrOfQuadrangles::showMaxVal() // поиск и вывод максимальных фигур
 
 	quadrilateral* temp = &maxQuad.mainQuadrangleVar[0];
 
-	for (int i = 0; this->mainQuadrangleVar[i].typeOfQuad >= quadrilateral::RECTANGLE && this->mainQuadrangleVar[i].typeOfQuad <= quadrilateral::RHOMBUS; i++)
+
+	for (int i = 0; this->mainQuadrangleVar[i].getType() >= quadrilateral::RECTANGLE && this->mainQuadrangleVar[i].getType() <= quadrilateral::RHOMBUS; i++)
 	{
-		if (this->mainQuadrangleVar[i].typeOfQuad == quadrilateral::RECTANGLE)
+		if (this->mainQuadrangleVar[i].getType() == quadrilateral::RECTANGLE)
 		{
-			if (temp[0].areaOfQuadrilateral < this->mainQuadrangleVar[i].areaOfQuadrilateral) temp[0] = this->mainQuadrangleVar[i];
+			if (maxQuad.areaOfQuadrangle(temp[0]) < this->areaOfQuadrangle(mainQuadrangleVar[i])) temp[0] = this->mainQuadrangleVar[i];
 		}
-		else if (this->mainQuadrangleVar[i].typeOfQuad == quadrilateral::FOURSQUARE)
+		else if (this->mainQuadrangleVar[i].getType() == quadrilateral::FOURSQUARE)
 		{
-			if (temp[1].areaOfQuadrilateral < this->mainQuadrangleVar[i].areaOfQuadrilateral) temp[1] = this->mainQuadrangleVar[i];
+			if (maxQuad.areaOfQuadrangle(temp[1]) < this->areaOfQuadrangle(mainQuadrangleVar[i])) temp[1] = this->mainQuadrangleVar[i];
 		}
-		else if (this->mainQuadrangleVar[i].typeOfQuad == quadrilateral::RHOMBUS)
+		else if (this->mainQuadrangleVar[i].getType() == quadrilateral::RHOMBUS)
 		{
-			if (temp[2].areaOfQuadrilateral < this->mainQuadrangleVar[i].areaOfQuadrilateral) temp[2] = this->mainQuadrangleVar[i];
+			if (maxQuad.areaOfQuadrangle(temp[2]) < this->areaOfQuadrangle(mainQuadrangleVar[i])) temp[2] = this->mainQuadrangleVar[i];
 		};
 	};
 
-	std::cout << "Max rectangle has an area " << temp[0].areaOfQuadrilateral << std::endl;
-	std::cout << "Max foursquare has an area " << temp[1].areaOfQuadrilateral << std::endl;
-	std::cout << "Max rhombus has an area " << temp[2].areaOfQuadrilateral << std::endl << std::endl;
+	std::cout << "Max rectangle has an area " << maxQuad.areaOfQuadrangle(temp[0]) << std::endl;
+	std::cout << "Max foursquare has an area " << maxQuad.areaOfQuadrangle(temp[1]) << std::endl;
+	std::cout << "Max rhombus has an area " << maxQuad.areaOfQuadrangle(temp[2]) << std::endl << std::endl;
+};
+
+arrOfQuadrangles::arrOfQuadrangles(const arrOfQuadrangles& copy)
+{
+	this->mainQuadrangleVar = new quadrilateral[copy.sizeOfArray];
+	this->sizeOfArray = copy.sizeOfArray;
+
+	for (int i = 0; i < copy.sizeOfArray; i++)
+	{
+		this->mainQuadrangleVar[i] = copy.mainQuadrangleVar[i];
+	};
 };
 
 arrOfQuadrangles::~arrOfQuadrangles()
@@ -132,7 +135,10 @@ arrOfQuadrangles::~arrOfQuadrangles()
 	std::cout << "---Ќачало работы деструктора---" << std::endl;
 	std::cout << " ”даление массива, содержащего " << this->sizeOfArray << " объектов" << std::endl;
 
-	delete[] mainQuadrangleVar;
+	//for (int i = 0; i < this->sizeOfArray; i++)
+	//{
+		delete[] mainQuadrangleVar;
+	//};
 
 	std::cout << "--- онец работы деструктора---" << std::endl << std::endl;
 };
