@@ -1,36 +1,41 @@
 #include "stdafx.h"
 #include "Cartoon.h"
 
-Cartoon::Cartoon() { };
+Cartoon::Cartoon() {};
 
-Cartoon::Cartoon(char* name_, char* date_)
+Cartoon::Cartoon(char* name_, char* time_, char* other_)
 {
-	this->date = date_;
-	this->cartoonName = name_;
+	time = time_;
+	name = name_;
+	other = other_;
 };
 
-char* Cartoon::getDate()
+char* Cartoon::getTime()
 {
-	return this->date;
+	return time;
 };
 
 char* Cartoon::getName()
 {
-	return this->cartoonName;
+	return name;
 };
 
-void Cartoon::setDate(char* date_)
+char* Cartoon::getOther()
 {
-	this->date = date_;
+	return other;
+};
+
+void Cartoon::setTime(char* time_)
+{
+	time = time_;
 };
 
 void Cartoon::setName(char* name_)
 {
-	this->cartoonName = name_;
+	name = name_;
 };
 
-Cartoon::~Cartoon()
+void Cartoon::setOther(char* other_)
 {
-	cartoonName = NULL;
-	date = NULL;
+	other = other_;
 };

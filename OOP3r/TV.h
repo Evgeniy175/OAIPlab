@@ -1,14 +1,19 @@
-class TV
+#include "Cartoon.h"
+#include <iostream>
+
+class TV : public Cartoon
 {
 private:
-	char* time;
-	char* tvProgramName;
+	Cartoon* arrOfTVprogram;	// массив программ
+	int size;					// размер массива
 
-private:
+public:
 	TV();
-	TV(char* time_, char* tvProgramName_);
+	TV(int size_, Cartoon firstVar, ...);
 
-	void setNewTV(char* time_, char* tvProgramName_);
-	char* getTime(char* time_);
-	char* getProgram();
+	char* getTVtime(int i);			// возвращает время текущей программы
+	char* getThisTV(int i);			// возвращает текущую программу
+	char* getOtherTV(int i);		// возвращает продюссера
+
+	void showTVprogram();			// выводит текущую программу
 };

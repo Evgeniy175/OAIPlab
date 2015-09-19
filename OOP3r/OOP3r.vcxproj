@@ -94,6 +94,7 @@
     <ClCompile Include="Advertising.cpp" />
     <ClCompile Include="Cartoon.cpp" />
     <ClCompile Include="FeatureFilm.cpp" />
+    <ClCompile Include="Film.cpp" />
     <ClCompile Include="News.cpp" />
     <ClCompile Include="Producer.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -1,24 +1,23 @@
 #include "stdafx.h"
 #include "Advertising.h"
 
-Advertising::Advertising() { };
+Advertising::Advertising() {};
 
-Advertising::Advertising(char* line_)
+Advertising::Advertising(char* name_, char* time_, char* other_) : Cartoon(name_, time_, other_) {};
+
+char* Advertising::getTime()
 {
-	this->line = line_;
-};
+	return time;
+}
 
 char* Advertising::getLine()
 {
-	return this->line;
+	return name;
 };
 
-void Advertising::setLine(char* line_)
+void Advertising::setLine(char* name_, char* time_, char* other_)
 {
-	this->line = line_;
-};
-
-Advertising::~Advertising()
-{
-	line = NULL;
+	setTime(time_);
+	setName(name_);
+	setOther(other_);
 };

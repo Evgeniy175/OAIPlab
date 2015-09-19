@@ -29,43 +29,76 @@ int _tmain(int argc, _TCHAR* argv[])
 	};
 	//1-2 Lab end
 
-	std::cout << "---end of 1-2 lab---" << std::endl << std::endl << "---start of 3 lab---" << std::endl << std::endl;
+	std::cout << "---end of 1-2 lab---" << std::endl << std::endl << std::endl << std::endl << "---start of 3 lab---" << std::endl << std::endl;
 
 	//3 Lab start
 	{
-		Cartoon* cartoon = new Cartoon("Wolf", "20.05.2013");
-		std::cout << " " << cartoon->getDate() << "   " << cartoon->getName() << std::endl;
-		cartoon->setDate("24.07.2014");
-		cartoon->setName("Home");
-		std::cout << " " << cartoon->getDate() << "   " << cartoon->getName() << std::endl << "---end of Cartoon---" << std::endl;
-		delete cartoon;
+		/*
+		
+		Cartoon* cartoon = new Cartoon("CARTOON! Spanch Bob", "09:30");
+		std::cout << ' ' << cartoon->getTime() << "   " << cartoon->getName() << std::endl;
+		cartoon->setTime("10:00");
+		cartoon->setName("CARTOON! Goofy");
+		std::cout << ' ' << cartoon->getTime() << "   " << cartoon->getName() << std::endl << "---end of Cartoon---" << std::endl << std::endl;
 
 		//
 
-		Advertising* advertising = new Advertising("Awesome knight! Only 9.99$");
-		std::cout << ' ' << advertising->getLine() << std::endl;;
-		advertising->setLine("Awesome knight! Now 5.99$");
-		std::cout << ' ' << advertising->getLine() << std::endl << "---end of Advertising---" << std::endl;
+		Advertising* advertising = new Advertising("ADVERTISING! Awesome knight! Only 9.99$", "10:50   10 min left!");
+		std::cout << ' ' << advertising->getTime() << "   " << advertising->getLine() << std::endl;
+		advertising->setLine("ADVERTISING! Awesome knight! Now  7.49$", "10:55   5 min left! ");
+		std::cout << ' ' << advertising->getTime() << "   " << advertising->getLine() << std::endl << "---end of Advertising---" << std::endl << std::endl;
 
 		//
 
-		News* news = new News("Day of Minsk City was held yesterday");
-		std::cout << " " << news->getNews() << std::endl;
-		news->setNews("Now too cold");
-		std::cout << ' ' << news->getNews() << std::endl << "---end of News---" << std::endl;
+		News* news = new News("NEWS!", "11:00");
+		std::cout << ' ' << news->getTime() << "   " << news->getNews() << std::endl << "---end of News---" << std::endl << std::endl;
 
 		//
 
-		FeatureFilm* fFilm = new FeatureFilm("Hobbit");
-		std::cout << ' ' << fFilm->getName() << std::endl << "---end of FeatureFilm---" << std::endl;
+		FeatureFilm* fFilm = new FeatureFilm("FEATURE FILM: Hobbit", "11:30");
+		Producer* producer = new Producer("Producer: Peter Jackson", "2012");
+		std::cout << ' ' << fFilm->getTime() << "   " << fFilm->getName() << "   " << producer->getName() << ", " << producer->getDate() << std::endl << "---end of FeatureFilm & Producer---" << std::endl << std::endl;
 
 		//
 
-		Producer* producer = new Producer("Somebody");
-		std::cout << ' ' << producer->getName() << std::endl << "---end of Producer---" << std::endl;
+		news->setNews("NEWS! ", "13:30");
+		std::cout << ' ' << news->getTime() << "   " << news->getNews() << std::endl << "---end of News---" << std::endl << std::endl;
+
+		//
+
+		Film* film = new Film("FILM: Titanic", "14:00");
+		producer->setProducer("Producer: James Cameron", "1997");
+		std::cout << ' ' << film->getTime() << "   " << film->getName() << "   " << producer->getName() << ", " << producer->getDate() << std::endl << "---end of Film & Producer---" << std::endl << std::endl;
+
+		//
+
+		*/
+
+		Cartoon* firstCartoon = new Cartoon("CARTOON! Spanch Bob", "09:30", NULL);
+		Cartoon* secondCartoon = new Cartoon("CARTOON! Goofy", "10:00", NULL);
+		
+		Advertising* firstAdvertising = new Advertising("ADVERTISING! Awesome knight! Only 9.99$", "10:50   10 min left!", NULL);
+		Advertising* secondAdvertising = new Advertising("ADVERTISING! Awesome knight! Now  7.49$", "10:55   5 min left! ", NULL);
+
+		News* firstNews = new News("NEWS!", "11:00", NULL);
+
+		
+		Producer* producer1 = new Producer("Producer: Peter Jackson", "2012", NULL);
+		FeatureFilm* fFilm = new FeatureFilm("FEATURE FILM: Hobbit", "11:30", producer1->getName());
+
+		News* secondNews = new News("NEWS!", "13:30", NULL);
+
+		Film* film = new Film("FILM: Titanic", "14:00", NULL);
+		Producer* producer2 = new Producer("Producer: James Cameron", "1997", NULL);
+		film->setProducer(producer2);
+		
+		TV* tv = new TV(8, *firstCartoon, *secondCartoon, *firstAdvertising, *secondAdvertising, *firstNews, *fFilm, *secondNews, *film);
+
+		tv->showTVprogram();
 	};
 
 	std::cout << std::endl << "---end of 3 lab---" << std::endl;
 
+	system("pause");
 	return 0;
 };

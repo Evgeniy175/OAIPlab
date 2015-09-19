@@ -1,12 +1,13 @@
-class FeatureFilm
-{
-private:
-	char* filmName;
+#include "Cartoon.h"
 
+class FeatureFilm : public Cartoon
+{
 public:
 	FeatureFilm();
-	FeatureFilm(char* name_);
+	FeatureFilm(char* name_, char* time_, char* other_);
 
-	void setName(char* name_);
-	char* getName();
+	void setFilm(char* name_, char* time_, char* other_);
+
+	char* getLine();
+	char* getTime();
 };

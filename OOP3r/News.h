@@ -1,12 +1,13 @@
-class News
-{
-private:
-	char* line;
+#include "Cartoon.h"
 
+class News : public Cartoon
+{
 public:
 	News();
-	News(char* line_);
+	News(char* name_, char* time_, char* other_);
 
-	void setNews(char* line_);
+	void setNews(char* name_, char* time_, char* other_);
+
+	char* getTime();
 	char* getNews();
 };

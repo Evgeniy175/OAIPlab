@@ -1,22 +1,23 @@
 #include "stdafx.h"
 #include "FeatureFilm.h"
 
-FeatureFilm::FeatureFilm()
+FeatureFilm::FeatureFilm() {};
+
+FeatureFilm::FeatureFilm(char* name_, char* time_, char* other_) : Cartoon(name_, time_, other_) {};
+
+void FeatureFilm::setFilm(char* name_, char* time_, char* other_)
 {
-	this->filmName = NULL;
+	setName(name_);
+	setTime(time_);
+	setOther(other_);
 };
 
-FeatureFilm::FeatureFilm(char* name_)
+char* FeatureFilm::getLine()
 {
-	this->filmName = name_;
+	return name;
 };
 
-void FeatureFilm::setName(char* name_)
+char* FeatureFilm::getTime()
 {
-	this->filmName = name_;
-};
-
-char* FeatureFilm::getName()
-{
-	return this->filmName;
+	return time;
 };
