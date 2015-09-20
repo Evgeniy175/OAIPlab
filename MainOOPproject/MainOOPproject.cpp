@@ -1,11 +1,11 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "classes.h"
 #include "OtherHeadersFromProjects.h"
 #include "ShowLR.h"
 #include <iostream>
 
-#pragma comment(lib, "..//Debug//OOP3R.lib")
-#pragma comment(lib, "..//Debug//MainOOP.lib")
+#pragma comment(lib, "..//Debug//OOP3R.lib")			// 3 –ª–∞–±–∞ –†—è–±—á–µ–Ω–∫–æ
+#pragma comment(lib, "..//Debug//MainOOP.lib")			// 1-2 –ª–∞–±–∞ –ü–ª–µ—Ö–∞–Ω–æ–≤
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -18,19 +18,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		if (switchVal != 0) system("pause");
 		system("cls");
-		std::cout << "1. À‡·Ó‡ÚÓÌ‡ˇ ‡·ÓÚ‡ π1-2. œÓ„‡ÏÏËÓ‚‡ÌËÂ Ó·˙ÂÍÚÓ‚ Ë ÍÎ‡ÒÒÓ‚" << std::endl;
-		std::cout << "2. À‡·Ó‡ÚÓÌ‡ˇ ‡·ÓÚ‡ π3. Õ‡ÒÎÂ‰Ó‚‡ÌËÂ Ë ÔÓÎËÏÓÙËÁÏ" << std::endl;
-		std::cout << "0. ¬˚ıÓ‰" << std::endl;
-		std::cout << "¬‡¯ ‚˚·Ó: ";
+		std::cout << "1. –õ–∞–±–æ—Ä–∞—Ç–æ—Ä–Ω–∞—è —Ä–∞–±–æ—Ç–∞ ‚Ññ1-2. –ü—Ä–æ–≥—Ä–∞–º–º–∏—Ä–æ–≤–∞–Ω–∏–µ –æ–±—ä–µ–∫—Ç–æ–≤ –∏ –∫–ª–∞—Å—Å–æ–≤" << std::endl;
+		std::cout << "2. –õ–∞–±–æ—Ä–∞—Ç–æ—Ä–Ω–∞—è —Ä–∞–±–æ—Ç–∞ ‚Ññ3. –ù–∞—Å–ª–µ–¥–æ–≤–∞–Ω–∏–µ –∏ –ø–æ–ª–∏–º–æ—Ä—Ñ–∏–∑–º" << std::endl;
+		std::cout << "0. –í—ã—Ö–æ–¥" << std::endl;
+		std::cout << "–í–∞—à –≤—ã–±–æ—Ä: ";
 		std::cin >> switchVal;
 
 		switch (switchVal)
 		{
 		case 1:
 		{
-				  std::cout << std::endl << "1. –ˇ·˜ÂÌÍÓ" << std::endl;
-				  std::cout << "2. œÎÂı‡ÌÓ‚" << std::endl;
-				  std::cout << "¬‡¯ ‚˚·Ó: ";
+				  std::cout << std::endl << "1. –†—è–±—á–µ–Ω–∫–æ" << std::endl;
+				  std::cout << "2. –ü–ª–µ—Ö–∞–Ω–æ–≤" << std::endl;
+				  std::cout << "–í–∞—à –≤—ã–±–æ—Ä: ";
 				  std::cin >> switchVal;
 
 				  switch (switchVal)
@@ -54,9 +54,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		case 2:
 		{
-				  std::cout << std::endl << "1. –ˇ·˜ÂÌÍÓ" << std::endl;
-				  std::cout << "2. œÎÂı‡ÌÓ‚" << std::endl;
-				  std::cout << "¬‡¯ ‚˚·Ó: ";
+				  std::cout << std::endl << "1. –†—è–±—á–µ–Ω–∫–æ" << std::endl;
+				  std::cout << "2. –ü–ª–µ—Ö–∞–Ω–æ–≤" << std::endl;
+				  std::cout << "–í–∞—à –≤—ã–±–æ—Ä: ";
 				  std::cin >> switchVal;
 
 				  switch (switchVal)
@@ -84,12 +84,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		default: break;
 		};
 	};
-
-
-	std::cout << "---end of 1-2 lab---" << std::endl << std::endl << std::endl << std::endl << "---start of 3 lab---" << std::endl << std::endl;
 	
-	std::cout << std::endl << "---end of 3 lab---" << std::endl;
-
 	system("pause");
 	return 0;
 };

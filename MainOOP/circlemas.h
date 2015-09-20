@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "circle.h"
-#define maxColOfCircles 20
+#define maxColOfCircles 3
 
 class CircleMas
 {

@@ -22,31 +22,14 @@ void Show1LabRyabchenko()
 
 void Show1LabPlehanow()
 {
-	Circle circle0;
 	Circle circle1(1, 6, 6);
 	Circle circle2(2, -7, 1);
 	Circle circle3(3, 3, 6);
-	Circle circle4(4, 9, 3);
-	Circle circle5(5, 5, 6);
-	Circle circle6(8, 1, 4);
-	Circle circle7(9, 8, 4);
-	Circle circle8(5, 5, 4);
+
+	CircleMas* mas1 = new CircleMas(3, circle1, circle2, circle3);
 
 
-	Circle* circle9 = new Circle(circle8);
-	circle9->setX(10);
-
-	CircleMas* mas1 = new CircleMas;
-	CircleMas* mas2 = new CircleMas(3, circle1, circle2, circle3);
-
-	mas1->circleMasAddCircle(circle1);
-	mas1->circleMasAddCircle(circle2);
-	mas1->circleMasAddCircle(circle3);
-	mas1->circleMasAddCircle(circle4);
-	mas1->circleMasAddCircle(circle5);
-	mas1->circleMasAddCircle(circle6);
-	mas1->circleMasAddCircle(circle7);
-	mas1->circleMasAddCircle(circle8);
+	mas1->~CircleMas();
 };
 
 void Show2LabRyabchenko()

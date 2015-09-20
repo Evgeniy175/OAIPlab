@@ -14,7 +14,7 @@
     <ProjectGuid>{27FA6FEB-FA76-404A-82B0-BA53FFF1F4EE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MainOOP</RootNamespace>
-    <ProjectName>3. MainOOPPlehanow</ProjectName>
+    <ProjectName>3. MainOOP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

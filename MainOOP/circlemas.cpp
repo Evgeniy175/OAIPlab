@@ -3,12 +3,15 @@
 
 CircleMas::CircleMas()
 	{
+		std::cout << "\n---Вызван конструктор класса Circlemas без параметров\n";
 		this->circleMas = new Circle[maxColOfCircles];
 		this->kolOfCircles = NULL;
+		std::cout << "Конструктор закончил работу\n";
 	};
 
 CircleMas::CircleMas(int kol, Circle mas, ...)
 	{
+		std::cout << "\n---Вызван конструктор класса Circlemas с переменным числом параметров\n";
 		this->circleMas = new Circle[maxColOfCircles];
 		this->kolOfCircles = NULL;
 		Circle *temp = &mas;
@@ -22,9 +25,10 @@ CircleMas::CircleMas(int kol, Circle mas, ...)
 
 CircleMas::~CircleMas()
 	{
-		std::cout << "Деструктор вызван" << std::endl;
-		delete[] this->circleMas;
+		std::cout << "\n---Деструктор класса CircleMas вызван\n";
+		delete[maxColOfCircles] this->circleMas;
 		kolOfCircles = 0;
+		std::cout << "Деструктор класса CircleMas закончил работу\n";
 	};
 
 CircleMas::CircleMas(CircleMas& A)

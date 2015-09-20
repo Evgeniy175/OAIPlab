@@ -3,42 +3,44 @@
 
 	Circle::Circle(int x, int y, int radius)
 		{
-			std::cout << "Конструктор начал работу" << std::endl;
+			std::cout << "\n---Конструктор класса Circle начал работу\nПараметры:X=" << x << "   ;Y=" << y << "   ;radius=" << radius<<std::endl;
 			this->x = x;
 			this->y = y;
-
 			if (radius < 0)
 			{
-				std::cout << "Задан неправильный радиус" << std::endl;
+				std::cout << "Задан неправильный радиус\n";
 				radius = 0;
 			}
 			else this->radius = radius;
-			std::cout << "Конструктор закончил работу" << std::endl;
+			std::cout << "Конструктор закончил работу\n";
 		};
 
 	Circle::Circle() : Circle::Circle(0, 0, 0){};
 	
 	Circle::~Circle()
 		{
+			std::cout << "\n---Деструктор класса Circle начал работу" << std::endl;
 			this->radius = 0;
 			this->x = 0;
 			this->y = 0;
-			std::cout << "Деструктор отработал" <<std::endl ;
+			std::cout << "Деструктор класса Circle отработал" <<std::endl ;
 		};
 
 	Circle::Circle(const Circle& A)
 		{
+			std::cout << "\n---Конструктор копирования класса Circle начал работу\n";
 			x = A.x;
 			y = A.y;
 			radius = A.radius;
+			std::cout << "Конструктор копирования класса Circle закончил работу\n";
 		};
 
-	float Circle::circleSquare()
+	double Circle::circleSquare()
 		{
 			return 3.14 * pow(2,this->radius);
 		};
 
-	float Circle::circleLenght()
+	double Circle::circleLenght()
 		{
 			return 2 * 3.14*this->radius;
 		};

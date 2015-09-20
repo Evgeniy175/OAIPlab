@@ -23,9 +23,9 @@ public:
 
 	Circle(int x,int y,int radius); //конструктор от 3 параметров
 	
-	float circleSquare();//площадь круга
+	double circleSquare();//площадь круга
 
-	float circleLenght();//длина круга
+	double circleLenght();//длина круга
 
 	void setRadius(int radius);//установить значение радиуса
 
