@@ -14,7 +14,7 @@
     <ProjectGuid>{AA35E246-090A-43FC-8323-4D0A6858E89F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>OOP3r</RootNamespace>
-    <ProjectName>OOP3R</ProjectName>
+    <ProjectName>2. OOP3R</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

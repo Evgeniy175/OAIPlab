@@ -14,6 +14,7 @@
     <ProjectGuid>{4F9EFE3E-771E-45EF-A134-9D1564396FAC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MainOOPproject</RootNamespace>
+    <ProjectName>1. MainOOPproject</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -81,12 +82,14 @@
   <ItemGroup>
     <ClInclude Include="Classes.h" />
     <ClInclude Include="OtherHeadersFromProjects.h" />
+    <ClInclude Include="ShowLR.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Classes.cpp" />
     <ClCompile Include="MainOOPproject.cpp" />
+    <ClCompile Include="ShowLR.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
