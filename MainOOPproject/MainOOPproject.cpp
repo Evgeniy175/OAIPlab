@@ -83,17 +83,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		News* firstNews = new News("NEWS!", "11:00", NULL);
 
 		
-		Producer* producer1 = new Producer("Producer: Peter Jackson", "2012", NULL);
-		FeatureFilm* fFilm = new FeatureFilm("FEATURE FILM: Hobbit", "11:30", producer1->getName());
+		Producer* producer = new Producer("Producer: Peter Jackson", "2012", NULL);
+		FeatureFilm* fFilm = new FeatureFilm("FEATURE FILM: Hobbit", "11:30", producer->getName());
 
 		News* secondNews = new News("NEWS!", "13:30", NULL);
 
-		Film* film = new Film("FILM: Titanic", "14:00", NULL);
-		Producer* producer2 = new Producer("Producer: James Cameron", "1997", NULL);
-		film->setProducer(producer2);
-		
-		TV* tv = new TV(8, *firstCartoon, *secondCartoon, *firstAdvertising, *secondAdvertising, *firstNews, *fFilm, *secondNews, *film);
+		producer->setProducer("Producer: James Cameron", "1997", NULL);
+		Film* film = new Film("FILM: Titanic", "14:00", producer->getName());
 
+		TV* tv = new TV(8, *firstCartoon, *secondCartoon, *firstAdvertising, *secondAdvertising, *firstNews, *fFilm, *secondNews, *film);
 		tv->showTVprogram();
 	};
 
