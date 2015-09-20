@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "classes.h"
 #include "OtherHeadersFromProjects.h"
 #include "ShowLR.h"

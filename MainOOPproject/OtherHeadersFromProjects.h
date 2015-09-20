@@ -1,4 +1,4 @@
-﻿// 1-2 лаба Плеханов начало
+// 1-2 лаба Плеханов начало
 #include "../MainOOP/circle.h"
 #include "../MainOOP/circlemas.h"
 // 1-2 лаба Плеханов конец
