@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "classes.h"
 #include <iostream>
 
@@ -12,8 +12,8 @@ quadrilateral::quadrilateral()
 
 quadrilateral::quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE)
 {
-	std::cout << "---Âûçîâ êîíñòðóêòîðà---" << std::endl;
-	std::cout << " Âûçâàë: " << TYPE << " ñ ïàðàìåòðàìè " << FIRSTSIZE << ", " << SECONDSIZE << std::endl;
+	std::cout << "---Ð’Ñ‹Ð·Ð¾Ð² ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð°---" << std::endl;
+	std::cout << " Ð’Ñ‹Ð·Ð²Ð°Ð»: " << TYPE << " Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸ " << FIRSTSIZE << ", " << SECONDSIZE << std::endl;
 
 	if (FIRSTSIZE < 0)
 	{
@@ -23,11 +23,11 @@ quadrilateral::quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE)
 	{
 		std::cout << "Second size is incorrect: " << SECONDSIZE << std::endl;
 	}
-	else if ((TYPE == RECTANGLE) && (FIRSTSIZE == SECONDSIZE)) // ïðîâåðêà íà ïðàâèëüíîñòü ñòîðîí ïðÿìîóãîëüíèêà
+	else if ((TYPE == RECTANGLE) && (FIRSTSIZE == SECONDSIZE)) // Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð½Ð° Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ ÑÑ‚Ð¾Ñ€Ð¾Ð½ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°
 	{
 		std::cout << "If it's rectangle, firstSize must be != secondSize" << std::endl;
 	}
-	else if ((TYPE == FOURSQUARE) && (FIRSTSIZE != SECONDSIZE)) // ïðîâåðêà íà ðàâåíñòâî ñòîðîí êâàäðàòà
+	else if ((TYPE == FOURSQUARE) && (FIRSTSIZE != SECONDSIZE)) // Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð½Ð° Ñ€Ð°Ð²ÐµÐ½ÑÑ‚Ð²Ð¾ ÑÑ‚Ð¾Ñ€Ð¾Ð½ ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð°
 	{
 		std::cout << "If it's foursquare, firstSize must be == secondSize" << std::endl;
 	}
@@ -42,7 +42,7 @@ quadrilateral::quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE)
 		this->typeOfQuad = TYPE;
 	};
 
-	std::cout << "---Êîíåö ðàáîòû êîíñòðóêòîðà---" << std::endl << std::endl;
+	std::cout << "---ÐšÐ¾Ð½ÐµÑ† Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð°---" << std::endl << std::endl;
 };
 
 quadrilateral::quadrilateral(const quadrilateral& copy)
@@ -67,7 +67,7 @@ arrOfQuadrangles::arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...
 }
 
 
-double arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle) // ïëîùàäü ôèãóðû
+double arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle) // Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÑŒ Ñ„Ð¸Ð³ÑƒÑ€Ñ‹
 {
 	if (quadrangle.getType() == quadrilateral::RHOMBUS)
 		return ((quadrangle.getFirstSize()*quadrangle.getSecondSize()) / 2);
@@ -76,7 +76,7 @@ double arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle) // ïëîùàäü ô
 };
 
 
-double arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle) // ïåðèìåòð ôèãóðû
+double arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle) // Ð¿ÐµÑ€Ð¸Ð¼ÐµÑ‚Ñ€ Ñ„Ð¸Ð³ÑƒÑ€Ñ‹
 {
 	if (quadrangle.getType() == quadrilateral::RHOMBUS)
 	{
@@ -85,9 +85,9 @@ double arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle) // ïåðè
 	return 2 * (quadrangle.getFirstSize() + quadrangle.getSecondSize());
 };
 
-void arrOfQuadrangles::showMaxVal() // ïîèñê è âûâîä ìàêñèìàëüíûõ ôèãóð
+void arrOfQuadrangles::showMaxVal() // Ð¿Ð¾Ð¸ÑÐº Ð¸ Ð²Ñ‹Ð²Ð¾Ð´ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ñ… Ñ„Ð¸Ð³ÑƒÑ€
 {
-	arrOfQuadrangles maxQuad(	// çàäà¸ì ìèíèìàëüíûå ïàðàìåòðû
+	arrOfQuadrangles maxQuad(	// Ð·Ð°Ð´Ð°Ñ‘Ð¼ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹
 		3,
 		quadrilateral(quadrilateral::RECTANGLE, 0, 0),
 		quadrilateral(quadrilateral::FOURSQUARE, 0, 0),
@@ -131,12 +131,12 @@ arrOfQuadrangles::arrOfQuadrangles(const arrOfQuadrangles& copy)
 
 arrOfQuadrangles::~arrOfQuadrangles()
 {
-	std::cout << "---Íà÷àëî ðàáîòû äåñòðóêòîðà---" << std::endl;
-	std::cout << " Óäàëåíèå ìàññèâà, ñîäåðæàùåãî " << this->sizeOfArray << " îáúåêòîâ" << std::endl;
+	std::cout << "---ÐÐ°Ñ‡Ð°Ð»Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð°---" << std::endl;
+	std::cout << " Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°, ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‰ÐµÐ³Ð¾ " << this->sizeOfArray << " Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²" << std::endl;
 
 	delete[] mainQuadrangleVar;
 
-	std::cout << "---Êîíåö ðàáîòû äåñòðóêòîðà---" << std::endl << std::endl;
+	std::cout << "---ÐšÐ¾Ð½ÐµÑ† Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð°---" << std::endl << std::endl;
 };
 
 void quadrilateral::setType(short type_)

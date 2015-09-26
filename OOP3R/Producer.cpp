@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "producer.h"
 
 producer::producer() : base() {}

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include <iostream>
 
 #ifndef CLASSES_CHECK
@@ -7,9 +7,9 @@
 class quadrilateral
 {
 private:
-	short typeOfQuad;															// тип четырёхугольника через enum (0 - прямоугольник)
-	double firstSize;															// ширина четырёхугольника или длина 1-й диагонали ромба
-	double secondSize;															// высота четырёхугольника или длина 2-й диагонали ромба
+	short typeOfQuad;															// С‚РёРї С‡РµС‚С‹СЂС‘С…СѓРіРѕР»СЊРЅРёРєР° С‡РµСЂРµР· enum (0 - РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє)
+	double firstSize;															// С€РёСЂРёРЅР° С‡РµС‚С‹СЂС‘С…СѓРіРѕР»СЊРЅРёРєР° РёР»Рё РґР»РёРЅР° 1-Р№ РґРёР°РіРѕРЅР°Р»Рё СЂРѕРјР±Р°
+	double secondSize;															// РІС‹СЃРѕС‚Р° С‡РµС‚С‹СЂС‘С…СѓРіРѕР»СЊРЅРёРєР° РёР»Рё РґР»РёРЅР° 2-Р№ РґРёР°РіРѕРЅР°Р»Рё СЂРѕРјР±Р°
 
 public:
 	enum typeOfQuadrilateral { RECTANGLE, FOURSQUARE, RHOMBUS };
@@ -21,23 +21,23 @@ public:
 	double getFirstSize();
 	double getSecondSize();
 
-	quadrilateral();															// конструктор по умолчанию
-	quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE);				// конструктор для заполнения данными
-	quadrilateral(quadrilateral const& copy);									// конструктор копирования
+	quadrilateral();															// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE);				// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РґР°РЅРЅС‹РјРё
+	quadrilateral(quadrilateral const& copy);									// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 };
 
 class arrOfQuadrangles
 {
 public:
-	quadrilateral* mainQuadrangleVar;											// массив классов
-	int sizeOfArray;															// количество элементов в массиве
-	arrOfQuadrangles();															// конструктор по умолчанию
-	arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...);			// конструктор для заполнения данными
-	arrOfQuadrangles(const arrOfQuadrangles& copy);								// конструктор копирования
-	double areaOfQuadrangle(quadrilateral quadrangle);							// площадь фигуры
-	double perimeterOfQuadrangle(quadrilateral quadrangle);						// периметр фигуры
-	void showMaxVal();															// поиск и вывод максимальных фигур
-	~arrOfQuadrangles();														// деструктор
+	quadrilateral* mainQuadrangleVar;											// РјР°СЃСЃРёРІ РєР»Р°СЃСЃРѕРІ
+	int sizeOfArray;															// РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ
+	arrOfQuadrangles();															// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...);			// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РґР°РЅРЅС‹РјРё
+	arrOfQuadrangles(const arrOfQuadrangles& copy);								// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	double areaOfQuadrangle(quadrilateral quadrangle);							// РїР»РѕС‰Р°РґСЊ С„РёРіСѓСЂС‹
+	double perimeterOfQuadrangle(quadrilateral quadrangle);						// РїРµСЂРёРјРµС‚СЂ С„РёРіСѓСЂС‹
+	void showMaxVal();															// РїРѕРёСЃРє Рё РІС‹РІРѕРґ РјР°РєСЃРёРјР°Р»СЊРЅС‹С… С„РёРіСѓСЂ
+	~arrOfQuadrangles();														// РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 };
 
 #endif

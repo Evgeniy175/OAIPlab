@@ -1,4 +1,4 @@
-#ifndef BASE_CHECK
+﻿#ifndef BASE_CHECK
 #define  BASE_CHECK
 
 class base
