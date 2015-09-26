@@ -15,5 +15,5 @@ public:
 
 	char* getName() const;
 	char* getTime() const;
-	char* getOther();
+	char* getOther() const;
 };

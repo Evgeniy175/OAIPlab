@@ -4,7 +4,7 @@ class cartoon : public base
 {
 public:
 	cartoon();
-	cartoon(char* name, char* time);
+	cartoon(char* name, char* time, char* other);
 
 	void setTime(char* time);
 	void setName(char* name);

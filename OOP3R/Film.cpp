@@ -2,10 +2,7 @@
 #include "film.h"
 
 film::film() : base() {}
-film::film(char* name, char* time, char* other) : base(name, time)
-{
-	this->other_ = other;
-}
+film::film(char* name, char* time, char* other) : base(name, time, other) {}
 
 void film::setName(char* name)
 {
@@ -32,7 +29,7 @@ char* film::getTime() const
 	return this->time_;
 };
 
-char* film::getOther()
+char* film::getOther() const
 {
 	return this->other_;
 };

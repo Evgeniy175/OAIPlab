@@ -1,10 +1,10 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "classes.h"
 #include "ShowLR.h"
 #include <iostream>
 
-#pragma comment(lib, "..//Debug//2. OOP3R.lib")				// 3-4 лаба Рябченко
-#pragma comment(lib, "..//Debug//3. MainOOP.lib")			// 1-2 лаба Плеханов
+#pragma comment(lib, "..//Debug//2. OOP3R.lib")				// 3-4 Р»Р°Р±Р° Р СЏР±С‡РµРЅРєРѕ
+#pragma comment(lib, "..//Debug//3. MainOOP.lib")			// 1-2 Р»Р°Р±Р° РџР»РµС…Р°РЅРѕРІ
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -16,19 +16,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		if (switchVal != 0) system("pause");
 		system("cls");
-		std::cout << "1. Лабораторная работа №1-2. Программирование объектов и классов" << std::endl;
-		std::cout << "2. Лабораторная работа №3-4. Наследование и полиморфизм. Абстрактные классы" << std::endl;
-		std::cout << "0. Выход" << std::endl;
-		std::cout << "Ваш выбор: ";
+		std::cout << "1. Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° в„–1-2. РџСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ Рё РєР»Р°СЃСЃРѕРІ" << std::endl;
+		std::cout << "2. Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° в„–3-4. РќР°СЃР»РµРґРѕРІР°РЅРёРµ Рё РїРѕР»РёРјРѕСЂС„РёР·Рј. РђР±СЃС‚СЂР°РєС‚РЅС‹Рµ РєР»Р°СЃСЃС‹" << std::endl;
+		std::cout << "0. Р’С‹С…РѕРґ" << std::endl;
+		std::cout << "Р’Р°С€ РІС‹Р±РѕСЂ: ";
 		std::cin >> switchVal;
 
 		switch (switchVal)
 		{
 		case 1:
 		{
-				  std::cout << std::endl << "1. Рябченко" << std::endl;
-				  std::cout << "2. Плеханов" << std::endl;
-				  std::cout << "Ваш выбор: ";
+				  std::cout << std::endl << "1. Р СЏР±С‡РµРЅРєРѕ" << std::endl;
+				  std::cout << "2. РџР»РµС…Р°РЅРѕРІ" << std::endl;
+				  std::cout << "Р’Р°С€ РІС‹Р±РѕСЂ: ";
 				  std::cin >> switchVal;
 
 				  switch (switchVal)
@@ -52,9 +52,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		case 2:
 		{
-				  std::cout << std::endl << "1. Рябченко" << std::endl;
-				  std::cout << "2. Плеханов" << std::endl;
-				  std::cout << "Ваш выбор: ";
+				  std::cout << std::endl << "1. Р СЏР±С‡РµРЅРєРѕ" << std::endl;
+				  std::cout << "2. РџР»РµС…Р°РЅРѕРІ" << std::endl;
+				  std::cout << "Р’Р°С€ РІС‹Р±РѕСЂ: ";
 				  std::cin >> switchVal;
 
 				  switch (switchVal)

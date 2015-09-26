@@ -32,22 +32,26 @@ void show1and2LabPlehanow()
 
 void show3and4LabRyabchenko()
 {
-	tv* tvVar = new tv("TV Program at ", "28.09.2015: ");
-
-	cartoon* firstCartoon = new cartoon("CARTOON! Spanch Bob", "09:30");
-	cartoon* secondCartoon = new cartoon("CARTOON! Goofy", "10:00");
-
-	advertising* firstAdvertising = new advertising("ADVERTISING! Awesome knight! Only 9.99$", "10:50   10 min left!");
-	advertising* secondAdvertising = new advertising("ADVERTISING! Awesome knight! Now  7.49$", "10:55   5 min left!");
-
-	news* firstNews = new news("NEWS!", "11:00");
+	tv* tvVar = new tv("TV Program", "28.09.2015");
 	
-	producer* producerVar = new producer("Producer: Peter Jackson", "2012");
+	cartoon* firstCartoon = new cartoon("CARTOON! Spanch Bob", "09:30", NULL);
+	cartoon* secondCartoon = new cartoon("CARTOON! Goofy", "10:00", NULL);
+
+	advertising* firstAdvertising = new advertising("ADVERTISING! Awesome knight! Only 9.99$", "10:50   10 min left!", NULL);
+	advertising* secondAdvertising = new advertising("ADVERTISING! Awesome knight! Now  7.49$", "10:55   5 min left!", NULL);
+
+	news* firstNews = new news("NEWS!", "11:00", NULL);
+
+	producer* producerVar = new producer("Producer: Peter Jackson", "2012", NULL);
 	featureFilm* fFilm = new featureFilm("FEATURE FILM: Hobbit", "11:30", producerVar->getName());
 
-	news* secondNews = new news("NEWS!", "13:30");
+	news* secondNews = new news("NEWS!", "13:30", NULL);
 
 	producerVar->setName("Producer: James Cameron");
 	producerVar->setTime("1997");
 	film* filmVar = new film("FILM: Titanic", "14:00", producerVar->getName());
+	
+	tvVar->addElements(10, firstCartoon, secondCartoon, firstAdvertising, secondAdvertising, firstAdvertising, secondAdvertising, firstNews, fFilm, secondNews, filmVar);
+	
+	tvVar->showList();
 };

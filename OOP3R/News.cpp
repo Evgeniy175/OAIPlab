@@ -2,7 +2,7 @@
 #include "news.h"
 
 news::news() : base() {}
-news::news(char* name, char* time) : base(name, time) {}
+news::news(char* name, char* time, char* other) : base(name, time, other) {}
 
 void news::setName(char* name)
 {
@@ -14,6 +14,11 @@ void news::setTime(char* time)
 	this->time_ = time;
 };
 
+void news::setOther(char* other)
+{
+	this->other_ = other;
+};
+
 char* news::getName() const
 {
 	return this->name_;
@@ -22,4 +27,9 @@ char* news::getName() const
 char* news::getTime() const
 {
 	return this->time_;
+};
+
+char* news::getOther() const
+{
+	return this->other_;
 };

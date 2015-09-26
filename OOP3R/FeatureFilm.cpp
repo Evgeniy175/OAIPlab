@@ -2,10 +2,7 @@
 #include "featureFilm.h"
 
 featureFilm::featureFilm() : base() {}
-featureFilm::featureFilm(char* name, char* time, char* other) : base(name, time)
-{
-	this->other_ = other;
-}
+featureFilm::featureFilm(char* name, char* time, char* other) : base(name, time, other) {}
 
 char* featureFilm::getName() const
 {
@@ -17,22 +14,22 @@ char* featureFilm::getTime() const
 	return this->time_;
 };
 
-char* featureFilm::getOther()
+char* featureFilm::getOther() const
 {
 	return this->other_;
 };
 
-void featureFilm::setTime(char* TIME)
+void featureFilm::setTime(char* time)
 {
-	this->time_ = TIME;
+	this->time_ = time;
 };
 
-void featureFilm::setName(char* NAME)
+void featureFilm::setName(char* name)
 {
-	this->name_ = NAME;
+	this->name_ = name;
 };
 
-void featureFilm::setOther(char* OTHER)
+void featureFilm::setOther(char* other)
 {
-	this->other_ = OTHER;
+	this->other_ = other;
 };
