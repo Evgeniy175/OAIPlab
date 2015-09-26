@@ -1,23 +1,25 @@
 #include "stdafx.h"
-#include "News.h"
+#include "news.h"
 
-News::News() {};
+news::news() : base() {}
+news::news(char* name, char* time) : base(name, time) {}
 
-News::News(char* name_, char* time_, char* other_) : Cartoon(name_, time_, other_) {};
-
-void News::setNews(char* name_, char* time_, char* other_)
+void news::setName(char* name)
 {
-	setName(name_);
-	setTime(time_);
-	setOther(other_);
+	this->name_ = name;
 };
 
-char* News::getNews()
+void news::setTime(char* time)
 {
-	return name;
+	this->time_ = time;
 };
 
-char* News::getTime()
+char* news::getName() const
 {
-	return time;
+	return this->name_;
+};
+
+char* news::getTime() const
+{
+	return this->time_;
 };

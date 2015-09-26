@@ -1,23 +1,38 @@
 #include "stdafx.h"
-#include "FeatureFilm.h"
+#include "featureFilm.h"
 
-FeatureFilm::FeatureFilm() {};
-
-FeatureFilm::FeatureFilm(char* name_, char* time_, char* other_) : Cartoon(name_, time_, other_) {};
-
-void FeatureFilm::setFilm(char* name_, char* time_, char* other_)
+featureFilm::featureFilm() : base() {}
+featureFilm::featureFilm(char* name, char* time, char* other) : base(name, time)
 {
-	setName(name_);
-	setTime(time_);
-	setOther(other_);
+	this->other_ = other;
+}
+
+char* featureFilm::getName() const
+{
+	return this->name_;
 };
 
-char* FeatureFilm::getLine()
+char* featureFilm::getTime() const
 {
-	return name;
+	return this->time_;
 };
 
-char* FeatureFilm::getTime()
+char* featureFilm::getOther()
 {
-	return time;
+	return this->other_;
+};
+
+void featureFilm::setTime(char* TIME)
+{
+	this->time_ = TIME;
+};
+
+void featureFilm::setName(char* NAME)
+{
+	this->name_ = NAME;
+};
+
+void featureFilm::setOther(char* OTHER)
+{
+	this->other_ = OTHER;
 };

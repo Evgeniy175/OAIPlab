@@ -1,44 +1,25 @@
 #include "stdafx.h"
-#include "TV.h"
+#include "tv.h"
 
-TV::TV() {};
+tv::tv() : base() {}
+tv::tv(char* name, char* time) : base(name, time) {}
 
-TV::TV(int size_, Cartoon firstVar, ...)
+char* tv::getTime() const
 {
-	Cartoon* temp = &firstVar;
-
-	size = size_;
-	arrOfTVprogram = new Cartoon[size];
-
-	for (int i = 0; i < size; i++)
-	{
-		arrOfTVprogram[i] = *(temp + i);
-	};
+	return this->time_;
 };
 
-void TV::showTVprogram()
+char* tv::getName() const
 {
-	std::cout << "---Current TV Program---" << std::endl;
-
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << "   " << getTVtime(i) << "   " << getThisTV(i);
-		if (getOtherTV(i) != 0x00) std::cout << ", " << getOtherTV(i);
-		std::cout << std::endl;
-	};
+	return this->name_;
 };
 
-char* TV::getTVtime(int i)
+void tv::setName(char* name)
 {
-	return arrOfTVprogram[i].getTime();
+	this->name_ = name;
 };
 
-char* TV::getThisTV(int i)
+void tv::setTime(char* time)
 {
-	return arrOfTVprogram[i].getName();
-};
-
-char* TV::getOtherTV(int i)
-{
-	return arrOfTVprogram[i].getOther();
+	this->time_ = time;
 };

@@ -1,13 +1,19 @@
-#include "Cartoon.h"
+#include "base.h"
 
-class FeatureFilm : public Cartoon
+class featureFilm : public base
 {
+private:
+	char* other_;
+
 public:
-	FeatureFilm();
-	FeatureFilm(char* name_, char* time_, char* other_);
+	featureFilm();
+	featureFilm(char* name, char* time, char* other);
 
-	void setFilm(char* name_, char* time_, char* other_);
+	void setName(char* name);
+	void setTime(char* time);
+	void setOther(char* other);
 
-	char* getLine();
-	char* getTime();
+	char* getName() const;
+	char* getTime() const;
+	char* getOther();
 };

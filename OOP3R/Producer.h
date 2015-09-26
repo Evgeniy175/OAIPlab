@@ -1,18 +1,19 @@
-#include "Cartoon.h"
+#include "base.h"
 
 #ifndef PRODUCER_CHECK
 #define PRODUCER_CHECK
 
-class Producer : public Cartoon
+class producer : public base
 {
 public:
-	Producer();
-	Producer(char* name_, char* time_, char* other_);
+	producer();
+	producer(char* name, char* time);
 
-	void setProducer(char* name_, char* time_, char* other_);
+	void setName(char* name);
+	void setTime(char* time);
 
-	char* getName();
-	char* getDate();
+	char* getName() const;
+	char* getTime() const;
 };
 
 #endif

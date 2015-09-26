@@ -1,8 +1,7 @@
 #include "stdafx.h"
-#include "Classes.h"
-#include "OtherHeadersFromProjects.h"
+#include "ShowLR.h"
 
-void Show1LabRyabchenko()
+void show1and2LabRyabchenko()
 {
 	arrOfQuadrangles* newArr = new arrOfQuadrangles(
 		3,
@@ -20,37 +19,35 @@ void Show1LabRyabchenko()
 	delete newArr;
 };
 
-void Show1LabPlehanow()
+void show1and2LabPlehanow()
 {
 	Circle circle1(1, 6, 6);
 	Circle circle2(2, -7, 1);
 	Circle circle3(3, 3, 6);
 
 	CircleMas* mas1 = new CircleMas(3, circle1, circle2, circle3);
-
-
+	
 	mas1->~CircleMas();
 };
 
-void Show2LabRyabchenko()
+void show3and4LabRyabchenko()
 {
-	Cartoon* firstCartoon = new Cartoon("CARTOON! Spanch Bob", "09:30", NULL);
-	Cartoon* secondCartoon = new Cartoon("CARTOON! Goofy", "10:00", NULL);
+	tv* tvVar = new tv("TV Program at ", "28.09.2015: ");
 
-	Advertising* firstAdvertising = new Advertising("ADVERTISING! Awesome knight! Only 9.99$", "10:50   10 min left!", NULL);
-	Advertising* secondAdvertising = new Advertising("ADVERTISING! Awesome knight! Now  7.49$", "10:55   5 min left! ", NULL);
+	cartoon* firstCartoon = new cartoon("CARTOON! Spanch Bob", "09:30");
+	cartoon* secondCartoon = new cartoon("CARTOON! Goofy", "10:00");
 
-	News* firstNews = new News("NEWS!", "11:00", NULL);
+	advertising* firstAdvertising = new advertising("ADVERTISING! Awesome knight! Only 9.99$", "10:50   10 min left!");
+	advertising* secondAdvertising = new advertising("ADVERTISING! Awesome knight! Now  7.49$", "10:55   5 min left!");
 
+	news* firstNews = new news("NEWS!", "11:00");
+	
+	producer* producerVar = new producer("Producer: Peter Jackson", "2012");
+	featureFilm* fFilm = new featureFilm("FEATURE FILM: Hobbit", "11:30", producerVar->getName());
 
-	Producer* producer = new Producer("Producer: Peter Jackson", "2012", NULL);
-	FeatureFilm* fFilm = new FeatureFilm("FEATURE FILM: Hobbit", "11:30", producer->getName());
+	news* secondNews = new news("NEWS!", "13:30");
 
-	News* secondNews = new News("NEWS!", "13:30", NULL);
-
-	producer->setProducer("Producer: James Cameron", "1997", NULL);
-	Film* film = new Film("FILM: Titanic", "14:00", producer->getName());
-
-	TV* tv = new TV(8, *firstCartoon, *secondCartoon, *firstAdvertising, *secondAdvertising, *firstNews, *fFilm, *secondNews, *film);
-	tv->showTVprogram();
+	producerVar->setName("Producer: James Cameron");
+	producerVar->setTime("1997");
+	film* filmVar = new film("FILM: Titanic", "14:00", producerVar->getName());
 };

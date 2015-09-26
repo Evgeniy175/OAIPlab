@@ -1,26 +1,38 @@
 #include "stdafx.h"
-#include "Film.h"
+#include "film.h"
 
-Film::Film() {};
-Film::Film(char* name_, char* time_, char* other_) : Cartoon(name_, time_, other_) {};
-
-void Film::setFilm(char* name_, char* time_, char* other_)
+film::film() : base() {}
+film::film(char* name, char* time, char* other) : base(name, time)
 {
-	setTime(time_);
-	setName(name_);
+	this->other_ = other;
+}
+
+void film::setName(char* name)
+{
+	this->name_ = name;
 };
 
-void Film::setProducer(Producer* producer_)
+void film::setTime(char* time)
 {
-	setOther(producer_->getName());
+	this->time_ = time;
 };
 
-char* Film::getLine()
+void film::setOther(char* other)
 {
-	return name;
+	this->other_ = other;
 };
 
-char* Film::getTime()
+char* film::getName() const
 {
-	return time;
+	return this->name_;
+};
+
+char* film::getTime() const
+{
+	return this->time_;
+};
+
+char* film::getOther()
+{
+	return this->other_;
 };

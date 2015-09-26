@@ -1,13 +1,14 @@
-#include "Cartoon.h"
+#include "base.h"
 
-class News : public Cartoon
+class news : public base
 {
 public:
-	News();
-	News(char* name_, char* time_, char* other_);
+	news();
+	news(char* name, char* time);
+	
+	void setName(char* name);
+	void setTime(char* time);
 
-	void setNews(char* name_, char* time_, char* other_);
-
-	char* getTime();
-	char* getNews();
+	char* getTime() const;
+	char* getName() const;
 };

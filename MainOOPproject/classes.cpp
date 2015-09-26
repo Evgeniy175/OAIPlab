@@ -10,28 +10,28 @@ quadrilateral::quadrilateral()
 	this->typeOfQuad = -1;
 };
 
-quadrilateral::quadrilateral(short TYPE, float FIRSTSIZE, float SECONDSIZE)
+quadrilateral::quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE)
 {
 	std::cout << "---¬ызов конструктора---" << std::endl;
 	std::cout << " ¬ызвал: " << TYPE << " с параметрами " << FIRSTSIZE << ", " << SECONDSIZE << std::endl;
 
-	if (FIRSTSIZE <= 0)
+	if (FIRSTSIZE < 0)
 	{
 		std::cout << "First size is incorrect: " << FIRSTSIZE << std::endl;
 	}
-	else if (SECONDSIZE <= 0)
+	else if (SECONDSIZE < 0)
 	{
 		std::cout << "Second size is incorrect: " << SECONDSIZE << std::endl;
 	}
-	else if (TYPE == RECTANGLE && FIRSTSIZE == SECONDSIZE) // проверка на правильность сторон пр€моугольника
+	else if ((TYPE == RECTANGLE) && (FIRSTSIZE == SECONDSIZE)) // проверка на правильность сторон пр€моугольника
 	{
 		std::cout << "If it's rectangle, firstSize must be != secondSize" << std::endl;
 	}
-	else if (TYPE == FOURSQUARE && FIRSTSIZE != SECONDSIZE) // проверка на равенство сторон квадрата
+	else if ((TYPE == FOURSQUARE) && (FIRSTSIZE != SECONDSIZE)) // проверка на равенство сторон квадрата
 	{
 		std::cout << "If it's foursquare, firstSize must be == secondSize" << std::endl;
 	}
-	else if (TYPE < RECTANGLE || TYPE > RHOMBUS)
+	else if ((TYPE < RECTANGLE) || (TYPE > RHOMBUS))
 	{
 		std::cout << "Type of quadrilateral is incorrect: allowed only RECTANGLE, FOURSQUARE, RHOMBUS." << std::endl;
 	}
@@ -53,9 +53,7 @@ quadrilateral::quadrilateral(const quadrilateral& copy)
 };
 
 
-arrOfQuadrangles::arrOfQuadrangles()
-{
-};
+arrOfQuadrangles::arrOfQuadrangles() {}
 
 arrOfQuadrangles::arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...)
 {
@@ -66,10 +64,10 @@ arrOfQuadrangles::arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...
 
 	for (int i = 0; i != this->sizeOfArray; i++)
 		this->mainQuadrangleVar[i] = *(temp + i);
-};
+}
 
 
-float arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle) // площадь фигуры
+double arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle) // площадь фигуры
 {
 	if (quadrangle.getType() == quadrilateral::RHOMBUS)
 		return ((quadrangle.getFirstSize()*quadrangle.getSecondSize()) / 2);
@@ -78,7 +76,7 @@ float arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle) // площадь фи
 };
 
 
-float arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle) // периметр фигуры
+double arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle) // периметр фигуры
 {
 	if (quadrangle.getType() == quadrilateral::RHOMBUS)
 	{
@@ -91,9 +89,9 @@ void arrOfQuadrangles::showMaxVal() // поиск и вывод максимальных фигур
 {
 	arrOfQuadrangles maxQuad(	// задаЄм минимальные параметры
 		3,
-		quadrilateral(quadrilateral::RECTANGLE, 0.00002, 0.0001),
-		quadrilateral(quadrilateral::FOURSQUARE, 0.0001, 0.0001),
-		quadrilateral(quadrilateral::RHOMBUS, 0.0001, 0.0001)
+		quadrilateral(quadrilateral::RECTANGLE, 0, 0),
+		quadrilateral(quadrilateral::FOURSQUARE, 0, 0),
+		quadrilateral(quadrilateral::RHOMBUS, 0, 0)
 		);
 
 	quadrilateral* temp = &maxQuad.mainQuadrangleVar[0];
@@ -139,4 +137,34 @@ arrOfQuadrangles::~arrOfQuadrangles()
 	delete[] mainQuadrangleVar;
 
 	std::cout << "--- онец работы деструктора---" << std::endl << std::endl;
+};
+
+void quadrilateral::setType(short type_)
+{
+	this->typeOfQuad = type_;
+};
+
+void quadrilateral::setFirstSize(double firstSize_)
+{
+	this->firstSize = firstSize_;
+};
+
+void quadrilateral::setSecondSize(double secondSize_)
+{
+	this->secondSize = secondSize_;
+};
+
+short quadrilateral::getType()
+{
+	return this->typeOfQuad;
+};
+
+double quadrilateral::getFirstSize()
+{
+	return this->firstSize;
+};
+
+double quadrilateral::getSecondSize()
+{
+	return this->secondSize;
 };

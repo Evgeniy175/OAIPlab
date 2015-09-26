@@ -1,19 +1,14 @@
-#include "Cartoon.h"
-#include <iostream>
+#include "base.h"
 
-class TV : public Cartoon
+class tv : public base
 {
-private:
-	Cartoon* arrOfTVprogram;	// массив программ
-	int size;					// размер массива
-
 public:
-	TV();
-	TV(int size_, Cartoon firstVar, ...);
+	tv();
+	tv(char* name, char* time);
 
-	char* getTVtime(int i);			// возвращает время текущей программы
-	char* getThisTV(int i);			// возвращает текущую программу
-	char* getOtherTV(int i);		// возвращает продюссера
+	void setTime(char* time);
+	void setName(char* name);
 
-	void showTVprogram();			// выводит текущую программу
+	char* getTime() const;
+	char* getName() const;
 };

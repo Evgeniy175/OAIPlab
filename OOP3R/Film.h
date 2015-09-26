@@ -1,15 +1,19 @@
-#include "Cartoon.h"
-#include "Producer.h"
+#include "base.h"
 
-class Film : public Cartoon
+class film : public base
 {
+private:
+	char* other_;
+
 public:
-	Film();
-	Film(char* name_, char* time_, char* other_);
+	film();
+	film(char* name, char* time, char* other);
 
-	void setFilm(char* name_, char* time_, char* other_);
-	void setProducer(Producer* producer_);
+	void setName(char* name);
+	void setTime(char* time);
+	void setOther(char* other);
 
-	char* getTime();
-	char* getLine();
+	char* getTime() const;
+	char* getName() const;
+	char* getOther();
 };

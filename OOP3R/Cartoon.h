@@ -1,24 +1,16 @@
-#ifndef CARTOON_CHECKER
-#define  CARTOON_CHECKER
+#include "base.h"
 
-class Cartoon
+class cartoon : public base
 {
-protected:
-	char* time;
-	char* name;
-	char* other;
-
 public:
-	Cartoon();
-	Cartoon(char* name_, char* time_, char* other_);
+	cartoon();
+	cartoon(char* name, char* time);
 
-	char* getTime();
-	char* getName();
-	char* getOther();
-
-	void setTime(char* time_);
-	void setName(char* name_);
+	void setTime(char* time);
+	void setName(char* name);
 	void setOther(char* other);
-};
 
-#endif
+	char* getTime() const;
+	char* getName() const;
+	char* getOther() const;
+};

@@ -1,13 +1,14 @@
-#include "Cartoon.h"
+#include "base.h"
 
-class Advertising : public Cartoon
+class advertising : public base
 {
 public:
-	Advertising();
-	Advertising(char* name_, char* time_, char* other_);
+	advertising::advertising();
+	advertising::advertising(char* name, char* time);
 
-	void setLine(char* name_, char* time_, char* other_);
+	void setName(char* name);
+	void setTime(char* time);
 
-	char* getTime();
-	char* getLine();
+	char* getTime() const;
+	char* getName() const;
 };
