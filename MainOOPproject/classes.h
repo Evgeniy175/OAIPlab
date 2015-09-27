@@ -1,33 +1,36 @@
-﻿#include "stdafx.h"
-#include <iostream>
-
-#ifndef CLASSES_CHECK
+﻿#ifndef CLASSES_CHECK
 #define CLASSES_CHECK
+
+#include "stdafx.h"
+#include <iostream>
 
 class quadrilateral
 {
-private:
-	short typeOfQuad;															// тип четырёхугольника через enum (0 - прямоугольник)
-	double firstSize;															// ширина четырёхугольника или длина 1-й диагонали ромба
-	double secondSize;															// высота четырёхугольника или длина 2-й диагонали ромба
 
 public:
 	enum typeOfQuadrilateral { RECTANGLE, FOURSQUARE, RHOMBUS };
 
-	void setType(short type_);
-	void setFirstSize(double firstSize_);
-	void setSecondSize(double secondSize_);
 	short getType();
 	double getFirstSize();
 	double getSecondSize();
 
+	void setType(short type_);
+	void setFirstSize(double firstSize_);
+	void setSecondSize(double secondSize_);
+
 	quadrilateral();															// конструктор по умолчанию
 	quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE);				// конструктор для заполнения данными
 	quadrilateral(quadrilateral const& copy);									// конструктор копирования
+
+private:
+	short typeOfQuad;															// тип четырёхугольника через enum (0 - прямоугольник)
+	double firstSize;															// ширина четырёхугольника или длина 1-й диагонали ромба
+	double secondSize;															// высота четырёхугольника или длина 2-й диагонали ромба
 };
 
 class arrOfQuadrangles
 {
+
 public:
 	quadrilateral* mainQuadrangleVar;											// массив классов
 	int sizeOfArray;															// количество элементов в массиве

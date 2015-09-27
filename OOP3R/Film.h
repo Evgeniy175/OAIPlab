@@ -2,6 +2,7 @@
 
 class film : public base
 {
+
 private:
 	char* other_;
 

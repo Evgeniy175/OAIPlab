@@ -2,8 +2,6 @@
 
 class featureFilm : public base
 {
-private:
-	char* other_;
 
 public:
 	featureFilm();
@@ -16,4 +14,7 @@ public:
 	char* getName() const;
 	char* getTime() const;
 	char* getOther() const;
+
+private:
+	char* other_;
 };

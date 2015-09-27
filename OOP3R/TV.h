@@ -3,9 +3,6 @@
 
 class tv : public base
 {
-private:
-	//tv* temp;
-	char* other_;
 
 public:
 	tv();
@@ -23,4 +20,7 @@ public:
 	void addElements(int nElements, base* element, ...);
 
 	void showList();
+
+private:
+	char* other_;
 };

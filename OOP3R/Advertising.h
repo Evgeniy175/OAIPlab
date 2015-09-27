@@ -2,6 +2,7 @@
 
 class advertising : public base
 {
+
 public:
 	advertising::advertising();
 	advertising::advertising(char* name, char* time, char* other);

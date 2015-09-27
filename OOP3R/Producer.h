@@ -1,10 +1,11 @@
-﻿#include "base.h"
-
-#ifndef PRODUCER_CHECK
+﻿#ifndef PRODUCER_CHECK
 #define PRODUCER_CHECK
+
+#include "base.h"
 
 class producer : public base
 {
+
 public:
 	producer();
 	producer(char* name, char* time, char* other);

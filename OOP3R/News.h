@@ -2,6 +2,7 @@
 
 class news : public base
 {
+
 public:
 	news();
 	news(char* name, char* time, char* other);

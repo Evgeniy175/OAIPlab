@@ -2,6 +2,7 @@
 
 class cartoon : public base
 {
+
 public:
 	cartoon();
 	cartoon(char* name, char* time, char* other);
