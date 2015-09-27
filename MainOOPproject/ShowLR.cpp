@@ -51,7 +51,7 @@ void show3and4LabRyabchenko()
 	producerVar->setTime("1997");
 	film* filmVar = new film("FILM: Titanic", "14:00", producerVar->getName());
 	
-	tvVar->addElements(10, firstCartoon, secondCartoon, firstAdvertising, secondAdvertising, firstAdvertising, secondAdvertising, firstNews, fFilm, secondNews, filmVar);
+	tvVar->addElements(8, firstCartoon, secondCartoon, firstAdvertising, secondAdvertising, firstNews, fFilm, secondNews, filmVar);
 	
 	tvVar->showList();
 };

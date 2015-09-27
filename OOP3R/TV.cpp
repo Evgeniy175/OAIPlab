@@ -52,17 +52,13 @@ void tv::addElement(base* element)
 {
 	if (this->head != NULL)
 	{
-		temp = (tv*)(this->getHead());
+		base* temp = head;
 
-		while (temp->next != NULL)
-		{
-			temp = (tv*)(temp->next);
-		};
-		
-		temp->name_ = element->getName();
-		temp->time_ = element->getTime();
-		temp->other_ = element->getOther();
-		temp->next = new tv();
+		while (temp->getNext() != NULL)
+			temp = temp->getNext();
+
+		temp->setCurrent(element);
+		temp->setNext(new tv());
 	};
 };
 
@@ -70,31 +66,28 @@ void tv::addElements(int nElements, base* element, ...)
 {
 	if (this->head != NULL)
 	{
-		temp = (tv*)(this->getHead());
+		base* temp = head;
 
-		while (temp->next != NULL)
-			temp = (tv*)(temp->next);
+		while (temp->getNext() != NULL)
+			temp = temp->getNext();
 
-		for (int i = 0; i < nElements; i++)
+		for (int i = 0; i < nElements; i++, temp = temp->getNext())
 		{
-			temp->name_ = (*(&element + i))->getName();
-			temp->time_ = (*(&element + i))->getTime();
-			temp->other_ = (*(&element + i))->getOther();
-			temp->next = new tv();
-			temp = (tv*)(temp->next);
+			temp->setCurrent(*(&element + i));
+			temp->setNext(new tv());
 		};
 	};
 };
 
 void tv::showList()
 {
-	temp = (tv*)(this->head);
+	base* temp = head;
 
-	while (temp->next != NULL)
+	while (temp->getNext() != NULL)
 	{
 		std::cout << temp->getTime() << '\t' << temp->getName();
 		if (temp->getOther() != NULL) std::cout << '\t' << temp->getOther();
 		std::cout << std::endl;
-		temp = (tv*)(temp->next);
+		temp = temp->getNext();
 	};
 }

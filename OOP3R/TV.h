@@ -4,7 +4,7 @@
 class tv : public base
 {
 private:
-	tv* temp;
+	//tv* temp;
 	char* other_;
 
 public:

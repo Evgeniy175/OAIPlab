@@ -16,9 +16,21 @@ base::base(char* name, char* time, char* other)
 	this->other_ = other;
 }
 
-base* base::getHead()
+base* base::getNext()
 {
-	return this->head;
+	return this->next;
+};
+
+void base::setNext(base* newNext)
+{
+	this->next = newNext;
+};
+
+void base::setCurrent(base* curr)
+{
+	this->name_ = curr->name_;
+	this->time_ = curr->time_;
+	this->other_ = curr->other_;
 };
 
 base::~base()
