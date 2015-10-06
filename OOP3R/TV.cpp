@@ -1,26 +1,35 @@
 ﻿#include "stdafx.h"
 #include "tv.h"
 
-tv::tv() : base() {}
-tv::tv(char* name, char* time)
+base* base::head = NULL;
+
+tv::tv() : base()
+{
+	this->progType = programType::TV;
+}
+
+tv::tv(char* name, date* newDate)
 {
 	if (this->head == NULL)
 	{
+		programController = new controller;
 		this->head = this;
-		this->next = new tv();
 		this->name_ = name;
-		this->time_ = time;
+		this->date_ = newDate;
 		this->other_ = NULL;
+		programController->addNew(this);
 	}
 	else
 	{
 		tv::addElement(this);
 	};
+
+	this->progType = programType::TV;
 }
 
-char* tv::getTime() const
+date* tv::getDate() const
 {
-	return this->time_;
+	return this->date_;
 };
 
 char* tv::getName() const
@@ -38,9 +47,9 @@ void tv::setName(char* name)
 	this->name_ = name;
 };
 
-void tv::setTime(char* time)
+void tv::setDate(date* newDate)
 {
-	this->time_ = time;
+	this->date_ = newDate;
 };
 
 void tv::setOther(char* other)
@@ -50,44 +59,49 @@ void tv::setOther(char* other)
 
 void tv::addElement(base* element)
 {
-	if (this->head != NULL)
-	{
-		base* temp = head;
-
-		while (temp->getNext() != NULL)
-			temp = temp->getNext();
-
-		temp->setCurrent(element);
-		temp->setNext(new tv());
-	};
+	programController->addNew(element);
 };
 
 void tv::addElements(int nElements, base* element, ...)
 {
-	if (this->head != NULL)
+	for (int i = 0; i < nElements; i++)
 	{
-		base* temp = head;
-
-		while (temp->getNext() != NULL)
-			temp = temp->getNext();
-
-		for (int i = 0; i < nElements; i++, temp = temp->getNext())
-		{
-			temp->setCurrent(*(&element + i));
-			temp->setNext(new tv());
-		};
+		programController->addNew(*(&element + i));
 	};
 };
 
-void tv::showList()
+void tv::show()
 {
-	base* temp = head;
+	programController->showList();
+};
 
-	while (temp->getNext() != NULL)
+int tv::showNumberOfAdv()
+{
+	return programController->numberOfAdv();
+};
+
+void tv::searchFilmInYear(int year)
+{
+	std::list<base*> temp = programController->searchFilmInYear(year);
+
+	for (std::list<base*>::iterator it = temp.begin(); it != temp.end(); it++)
 	{
-		std::cout << temp->getTime() << '\t' << temp->getName();
-		if (temp->getOther() != NULL) std::cout << '\t' << temp->getOther();
-		std::cout << std::endl;
-		temp = temp->getNext();
+		if ((*it)->date_->time_->hours_ / 10 == NULL)	std::cout << '0';
+		std::cout << (*it)->date_->time_->hours_ << ':';
+
+		if ((*it)->date_->time_->minutes_ / 10 == NULL)	std::cout << '0';
+		std::cout << (*it)->date_->time_->minutes_ << "   ";
+
+		std::cout << (*it)->date_->year_ << "   " << (*it)->name_ << "   " << (*it)->other_ << std::endl;
 	};
-}
+};
+
+void tv::programDuration()
+{
+	programTime* temp = programController->getDuration();
+
+	std::cout << "Продолжительность программы:" << std::endl;
+	std::cout << temp->hours_ << ':' << temp->minutes_ << std::endl;
+
+	delete temp;
+};

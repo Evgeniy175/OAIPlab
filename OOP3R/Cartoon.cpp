@@ -1,12 +1,19 @@
 ﻿#include "stdafx.h"
 #include "cartoon.h"
 
-cartoon::cartoon() : base() {}
-cartoon::cartoon(char* name, char* time, char* other) : base(name, time, other) {}
-
-char* cartoon::getTime() const
+cartoon::cartoon() : base()
 {
-	return this->time_;
+	this->progType = programType::CARTOON;
+}
+
+cartoon::cartoon(char* name, char* other, date* newDate) : base(name, other, newDate)
+{
+	this->progType = programType::CARTOON;
+}
+
+date* cartoon::getDate() const
+{
+	return this->date_;
 };
 
 char* cartoon::getName() const
@@ -19,9 +26,9 @@ char* cartoon::getOther() const
 	return this->other_;
 };
 
-void cartoon::setTime(char* time)
+void cartoon::setDate(date* newDate)
 {
-	this->time_ = time;
+	this->date_ = newDate;
 };
 
 void cartoon::setName(char* name)

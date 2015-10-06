@@ -5,16 +5,13 @@ class featureFilm : public base
 
 public:
 	featureFilm();
-	featureFilm(char* name, char* time, char* other);
+	featureFilm(char* name, char* other, date* newDate);
 
 	void setName(char* name);
-	void setTime(char* time);
+	void setDate(date* time);
 	void setOther(char* other);
 
 	char* getName() const;
-	char* getTime() const;
+	date* getDate() const;
 	char* getOther() const;
-
-private:
-	char* other_;
 };

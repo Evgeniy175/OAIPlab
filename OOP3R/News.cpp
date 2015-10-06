@@ -1,17 +1,24 @@
 ﻿#include "stdafx.h"
 #include "news.h"
 
-news::news() : base() {}
-news::news(char* name, char* time, char* other) : base(name, time, other) {}
+news::news() : base()
+{
+	this->progType = programType::NEWS;
+}
+
+news::news(char* name, char* other, date* newDate) : base(name, other, newDate)
+{
+	this->progType = programType::NEWS;
+}
 
 void news::setName(char* name)
 {
 	this->name_ = name;
 };
 
-void news::setTime(char* time)
+void news::setDate(date* newDate)
 {
-	this->time_ = time;
+	this->date_ = newDate;
 };
 
 void news::setOther(char* other)
@@ -24,9 +31,9 @@ char* news::getName() const
 	return this->name_;
 };
 
-char* news::getTime() const
+date* news::getDate() const
 {
-	return this->time_;
+	return this->date_;
 };
 
 char* news::getOther() const

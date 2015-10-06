@@ -1,17 +1,24 @@
 ﻿#include "stdafx.h"
 #include "featureFilm.h"
 
-featureFilm::featureFilm() : base() {}
-featureFilm::featureFilm(char* name, char* time, char* other) : base(name, time, other) {}
+featureFilm::featureFilm() : base()
+{
+	this->progType = programType::FEATUREFILM;
+}
+
+featureFilm::featureFilm(char* name, char* other, date* newDate) : base(name, other, newDate)
+{
+	this->progType = programType::FEATUREFILM;
+}
 
 char* featureFilm::getName() const
 {
 	return this->name_;
 };
 
-char* featureFilm::getTime() const
+date* featureFilm::getDate() const
 {
-	return this->time_;
+	return this->date_;
 };
 
 char* featureFilm::getOther() const
@@ -19,9 +26,9 @@ char* featureFilm::getOther() const
 	return this->other_;
 };
 
-void featureFilm::setTime(char* time)
+void featureFilm::setDate(date* newDate)
 {
-	this->time_ = time;
+	this->date_ = new date;
 };
 
 void featureFilm::setName(char* name)

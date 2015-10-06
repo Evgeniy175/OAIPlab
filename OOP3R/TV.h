@@ -1,4 +1,4 @@
-﻿#include "base.h"
+﻿#include "controller.h"
 #include <iostream>
 
 class tv : public base
@@ -6,21 +6,23 @@ class tv : public base
 
 public:
 	tv();
-	tv(char* name, char* time);
+	tv(char* name, date* newDate);
 
-	void setTime(char* time);
+	void setDate(date* time);
 	void setName(char* name);
 	void setOther(char* other);
 
-	char* getTime() const;
+	date* getDate() const;
 	char* getName() const;
 	char* getOther() const;
 
 	void addElement(base* element);
 	void addElements(int nElements, base* element, ...);
-
-	void showList();
+	void show();
+	void searchFilmInYear(int year);
+	void programDuration();
+	int showNumberOfAdv();
 
 private:
-	char* other_;
+	controller* programController;
 };

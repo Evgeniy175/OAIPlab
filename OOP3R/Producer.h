@@ -5,17 +5,16 @@
 
 class producer : public base
 {
-
 public:
 	producer();
-	producer(char* name, char* time, char* other);
+	producer(char* name, char* other, date* newDate);
 
 	void setName(char* name);
-	void setTime(char* time);
+	void setDate(date* time);
 	void setOther(char* other);
 
 	char* getName() const;
-	char* getTime() const;
+	date* getDate() const;
 	char* getOther() const;
 };
 

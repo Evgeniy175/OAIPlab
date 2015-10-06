@@ -1,12 +1,19 @@
 ﻿#include "stdafx.h"
 #include "advertising.h"
 
-advertising::advertising() : base() {}
-advertising::advertising(char* name, char* time, char* other) : base(name, time, other) {}
-
-char* advertising::getTime() const
+advertising::advertising() : base()
 {
-	return this->time_;
+	this->progType = programType::ADVERTISING;
+}
+
+advertising::advertising(char* name, char* other, date* newDate) : base(name, other, newDate)
+{
+	this->progType = programType::ADVERTISING;
+}
+
+date* advertising::getDate() const
+{
+	return this->date_;
 }
 
 char* advertising::getName() const
@@ -24,9 +31,9 @@ void advertising::setName(char* name)
 	this->name_ = name;
 };
 
-void advertising::setTime(char* time)
+void advertising::setDate(date* newDate)
 {
-	this->time_ = time;
+	this->date_ = newDate;
 };
 
 void advertising::setOther(char* other)

@@ -5,13 +5,13 @@ class cartoon : public base
 
 public:
 	cartoon();
-	cartoon(char* name, char* time, char* other);
+	cartoon(char* name, char* other, date* newDate);
 
-	void setTime(char* time);
+	void setDate(date* newDate);
 	void setName(char* name);
 	void setOther(char* other);
 
-	char* getTime() const;
+	date* getDate() const;
 	char* getName() const;
 	char* getOther() const;
 };

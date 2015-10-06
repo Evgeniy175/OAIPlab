@@ -11,10 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AA35E246-090A-43FC-8323-4D0A6858E89F}</ProjectGuid>
+    <ProjectGuid>{AD07211D-40C0-40D9-9D7C-29D01265D555}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>OOP3r</RootNamespace>
-    <ProjectName>2. OOP3R</ProjectName>
+    <RootNamespace>My4OOP6R</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -80,32 +79,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="advertising.h" />
-    <ClInclude Include="base.h" />
-    <ClInclude Include="cartoon.h" />
-    <ClInclude Include="controller.h" />
-    <ClInclude Include="featureFilm.h" />
-    <ClInclude Include="film.h" />
-    <ClInclude Include="news.h" />
-    <ClInclude Include="producer.h" />
+    <ClInclude Include="set.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="tv.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="advertising.cpp" />
-    <ClCompile Include="base.cpp" />
-    <ClCompile Include="cartoon.cpp" />
-    <ClCompile Include="controller.cpp" />
-    <ClCompile Include="featureFilm.cpp" />
-    <ClCompile Include="film.cpp" />
-    <ClCompile Include="news.cpp" />
-    <ClCompile Include="producer.cpp" />
+    <ClCompile Include="4. OOP6R.cpp" />
+    <ClCompile Include="set.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="tv.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
