@@ -13,7 +13,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	short switchVal = 0;
 	setlocale(LC_ALL, "Rus");
 	
-	for (;;)
+	while (true)
 	{
 		if (switchVal != 0) system("pause");
 		system("cls");
@@ -27,86 +27,74 @@ int _tmain(int argc, _TCHAR* argv[])
 		switch (switchVal)
 		{
 		case 1:
-		{
-				  std::cout << std::endl << "1. Рябченко" << std::endl;
-				  std::cout << "2. Плеханов" << std::endl;
-				  std::cout << "Ваш выбор: ";
-				  std::cin >> switchVal;
+			std::cout << std::endl << "1. Рябченко" << std::endl << "2. Плеханов" << std::endl;
+			std::cout << "Ваш выбор: ";
+			std::cin >> switchVal;
 
-				  switch (switchVal)
-				  {
-				  case 1:
-				  {
-							std::cout << std::endl;
-							show1and2LabRyabchenko();
-							break;
-				  }
-				  case 2:
-				  {
-							std::cout << std::endl;
-							show1and2LabPlehanow();
-							break;
-				  }
-				  default: break;
-				  }
+			switch (switchVal)
+			{
+			case 1:
+				std::cout << std::endl;
+				show1and2LabRyabchenko();
+				break;
 
-				  break;
-		}
+			case 2:
+				std::cout << std::endl;
+				show1and2LabPlehanow();
+				break;
+
+			default: break;
+			};
+
+			break;
+
+
 		case 2:
-		{
-				  std::cout << std::endl << "1. Рябченко" << std::endl;
-				  std::cout << "2. Плеханов" << std::endl;
-				  std::cout << "Ваш выбор: ";
-				  std::cin >> switchVal;
+			std::cout << std::endl << "1. Рябченко" << std::endl << "2. Плеханов" << std::endl;
+			std::cout << "Ваш выбор: ";
+			std::cin >> switchVal;
 
-				  switch (switchVal)
-				  {
-				  case 1:
-				  {
-							std::cout << std::endl;
-							show3and4LabRyabchenko();
-							break;
-				  }
-				  case 2:
-				  {
-							std::cout << std::endl;
-							break;
-				  }
-				  default: break;
-				  }
+			switch (switchVal)
+			{
+			case 1:
+				std::cout << std::endl;
+				show3and4LabRyabchenko();
+				break;
 
-				  break;
-		}
+			case 2:
+				std::cout << std::endl;
+				break;
+
+			default: break;
+			};
+
+			break;
+
+
 		case 3:
-		{
-				  std::cout << std::endl << "1. Рябченко" << std::endl;
-				  std::cout << "2. Плеханов" << std::endl;
-				  std::cout << "Ваш выбор: ";
-				  std::cin >> switchVal;
+			std::cout << std::endl << "1. Рябченко" << std::endl << "2. Плеханов" << std::endl;
+			std::cout << "Ваш выбор: ";
+			std::cin >> switchVal;
 
-				  switch (switchVal)
-				  {
-				  case 1:
-				  {
-							std::cout << std::endl;
-							show6LabRyabchenko();
-							break;
-				  }
-				  case 2:
-				  {
-							std::cout << std::endl;
-							
-							break;
-				  }
-				  default: break;
-				  }
+			switch (switchVal)
+			{
+			case 1:
+				std::cout << std::endl;
+				show6LabRyabchenko();
+				break;
 
-				  break;
-		}
-		case 0:
-		{
-				  exit(NULL);
-		}
+			case 2:
+				std::cout << std::endl;
+				break;
+
+			default: break;
+			};
+
+			break;
+
+
+		case 0: exit(NULL);
+
 		default: break;
 		};
 	};

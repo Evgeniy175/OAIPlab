@@ -8,14 +8,10 @@
 class controller
 {
 public:
-	std::list<base*> searchFilmInYear(int searchYear);
-	void showList();
-	void addNew(base*);
-	int numberOfAdv();	
-	programTime* getDuration();
-
-private:
-	std::list<base*> programList;
+	std::list<base*> searchFilmInYear(std::list<base*> programList, int searchYear);
+	void showList(std::list<base*> programList);
+	int numberOfAdv(std::list<base*> programList);
+	programTime* getDuration(std::list<base*> programList);
 };
 
 #endif

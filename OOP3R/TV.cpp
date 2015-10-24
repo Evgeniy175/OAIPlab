@@ -12,12 +12,11 @@ tv::tv(char* name, date* newDate)
 {
 	if (this->head == NULL)
 	{
-		programController = new controller;
 		this->head = this;
 		this->name_ = name;
 		this->date_ = newDate;
 		this->other_ = NULL;
-		programController->addNew(this);
+		programList.push_back(this);
 	}
 	else
 	{
@@ -59,49 +58,18 @@ void tv::setOther(char* other)
 
 void tv::addElement(base* element)
 {
-	programController->addNew(element);
+	programList.push_back(element);
 };
 
 void tv::addElements(int nElements, base* element, ...)
 {
 	for (int i = 0; i < nElements; i++)
 	{
-		programController->addNew(*(&element + i));
+		programList.push_back(*(&element + i));
 	};
 };
 
-void tv::show()
+std::list<base*> tv::getList()
 {
-	programController->showList();
-};
-
-int tv::showNumberOfAdv()
-{
-	return programController->numberOfAdv();
-};
-
-void tv::searchFilmInYear(int year)
-{
-	std::list<base*> temp = programController->searchFilmInYear(year);
-
-	for (std::list<base*>::iterator it = temp.begin(); it != temp.end(); it++)
-	{
-		if ((*it)->date_->time_->hours_ / 10 == NULL)	std::cout << '0';
-		std::cout << (*it)->date_->time_->hours_ << ':';
-
-		if ((*it)->date_->time_->minutes_ / 10 == NULL)	std::cout << '0';
-		std::cout << (*it)->date_->time_->minutes_ << "   ";
-
-		std::cout << (*it)->date_->year_ << "   " << (*it)->name_ << "   " << (*it)->other_ << std::endl;
-	};
-};
-
-void tv::programDuration()
-{
-	programTime* temp = programController->getDuration();
-
-	std::cout << "Продолжительность программы:" << std::endl;
-	std::cout << temp->hours_ << ':' << temp->minutes_ << std::endl;
-
-	delete temp;
+	return this->programList;
 };

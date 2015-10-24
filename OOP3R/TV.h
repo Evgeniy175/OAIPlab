@@ -1,7 +1,7 @@
 ﻿#include "controller.h"
 #include <iostream>
 
-class tv : public base
+class tv : public base, controller
 {
 
 public:
@@ -15,14 +15,11 @@ public:
 	date* getDate() const;
 	char* getName() const;
 	char* getOther() const;
+	std::list<base*> getList();
 
 	void addElement(base* element);
 	void addElements(int nElements, base* element, ...);
-	void show();
-	void searchFilmInYear(int year);
-	void programDuration();
-	int showNumberOfAdv();
 
 private:
-	controller* programController;
+	std::list<base*> programList;
 };

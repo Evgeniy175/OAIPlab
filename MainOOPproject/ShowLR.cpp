@@ -36,6 +36,7 @@ void show1and2LabPlehanow()
 
 void show3and4LabRyabchenko()
 {
+	controller* ctr = new controller;
 	tv* tvVar = new tv("TV Program", new date(05, 10, 2015, NULL));
 
 	cartoon* firstCartoon = new cartoon("CARTOON!", "Spanch Bob", new date(NULL, NULL, NULL, new programTime(9, 30)));
@@ -73,10 +74,11 @@ void show3and4LabRyabchenko()
 	film* filmVar3 = new film("FILM: The Silence of the Lambs", producerVar->getName(), new date(NULL, NULL, 1990, new programTime(18, NULL)));
 	tvVar->addElement(filmVar3);
 
-	tvVar->show();																					// вывести весь список
-	std::cout << std::endl << "Number of advertising: " << tvVar->showNumberOfAdv() << std::endl;	// вывести количество advertising
-	tvVar->searchFilmInYear(1990);																	// вывести фильмы 1990 года
-	tvVar->programDuration();																		// продолжительность программы
+	ctr->showList(tvVar->getList());																					// вывести весь список
+	std::cout << std::endl << "Number of advertising: " << ctr->numberOfAdv(tvVar->getList()) << std::endl;	// вывести количество advertising
+	std::list<base*> comboTemp = ctr->searchFilmInYear(tvVar->getList(), 1990);		
+	ctr->showList(comboTemp); // вывести фильмы 1990 года
+	ctr->getDuration(tvVar->getList());												// продолжительность программы
 };
 
 
@@ -86,6 +88,7 @@ void show6LabRyabchenko()
 	set* firstSet = new set(8, 2, 4, 6, 8, 10, 12, 14, 16);
 	set* secondSet = new set(4, 1, 2, 3, 4);
 	set* thirdSet = new set(3, 2, 10, 16);
+
 
 	if (*firstSet > 6)																				// проверка, содержится ли элемент 6 в множестве firstSet
 	{
@@ -102,4 +105,6 @@ void show6LabRyabchenko()
 	{
 		std::cout << "thirdSet is NOT a subset of a firstSet" << std::endl;
 	};
+
+	std::cout << (*firstSet)[2] << std::endl << std::endl;
 };

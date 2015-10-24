@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "controller.h"
 
-void controller::showList()
+void controller::showList(std::list<base*> programList)
 {
 	for (std::list<base*>::iterator it = programList.begin(); it != programList.end(); it++)
 	{
@@ -16,7 +16,7 @@ void controller::showList()
 	};
 };
 
-std::list<base*> controller::searchFilmInYear(int searchYear)
+std::list<base*> controller::searchFilmInYear(std::list<base*> programList, int searchYear)
 {
 	std::list<base*> rc;
 
@@ -36,7 +36,7 @@ std::list<base*> controller::searchFilmInYear(int searchYear)
 	return rc;
 };
 
-int controller::numberOfAdv()
+int controller::numberOfAdv(std::list<base*> programList)
 {
 	int rc = 0;
 
@@ -48,12 +48,7 @@ int controller::numberOfAdv()
 	return rc;
 };
 
-void controller::addNew(base* element)
-{
-	programList.push_back(element);
-};
-
-programTime* controller::getDuration()
+programTime* controller::getDuration(std::list<base*> programList)
 {
 	std::list<base*>::iterator firstIt = programList.begin();
 	std::list<base*>::iterator secondIt = programList.end();
@@ -64,5 +59,9 @@ programTime* controller::getDuration()
 	programTime* firstVar = (*firstIt)->getDate()->time_;
 	programTime* secondVar = (*secondIt)->getDate()->time_;
 	
+	std::cout << "Продолжительность программы:" << std::endl;
+
+	std::cout << ((programTime*)(*firstVar - *secondVar))->hours_ << ':' << ((programTime*)(*firstVar - *secondVar))->minutes_ << std::endl;
+
 	return *firstVar - *secondVar;
 };
