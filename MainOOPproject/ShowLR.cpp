@@ -172,17 +172,30 @@ void show6LabRyabchenko()
 	};
 
 	// class as parameter
+	std::cout << std::endl << std::endl;
+	{
+		quadTemplate<element<int>>* newArr = new quadTemplate<element<int>>(
+			3,
+			element<int>(quadrilateral::RECTANGLE, 2, 5),
+			element<int>(quadrilateral::FOURSQUARE, 3, 3),
+			element<int>(quadrilateral::RHOMBUS, 3, 5)
+			);
 
-	quadTemplate<quadrilateral>* newArr = new quadTemplate<quadrilateral>(
-		3,
-		quadrilateral(quadrilateral::RECTANGLE, 2, 5),
-		quadrilateral(quadrilateral::FOURSQUARE, 3, 3),
-		quadrilateral(quadrilateral::RHOMBUS, 3, 5)
-		);
+		newArr->showMaxVal();
 
-	quadTemplate<quadrilateral>* copyArr = new quadTemplate<quadrilateral>(*newArr);
-	copyArr->getElem(0)->setFirstSize(19);
-	newArr->showMaxVal();
+		delete newArr;
+	}
 
-	delete newArr;
+	{
+		quadTemplate<element<double>>* newArr = new quadTemplate<element<double>>(
+			3,
+			element<double>(quadrilateral::RECTANGLE, 2.123, 5.456),
+			element<double>(quadrilateral::FOURSQUARE, 3.789, 3.654),
+			element<double>(quadrilateral::RHOMBUS, 3456.879, 5.321)
+			);
+
+		newArr->showMaxVal();
+
+		delete newArr;
+	}
 };

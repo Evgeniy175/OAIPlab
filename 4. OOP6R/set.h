@@ -87,6 +87,93 @@ private:
 
 
 
+
+
+
+
+template <typename T>
+class element
+{
+public:
+	enum typeOfQuadrilateral { RECTANGLE, FOURSQUARE, RHOMBUS };
+
+	short getType(){
+		return this->typeOfQuad;
+	};
+
+	T getFirstSize(){
+		return this->firstSize;
+	};
+
+	T getSecondSize(){
+		return this->secondSize;
+	};
+
+	void setType(short type_){
+		this->typeOfQuad = type_;
+	};
+
+	void setFirstSize(T firstSize_){
+		this->firstSize = firstSize_;
+	};
+
+	void setSecondSize(T secondSize_){
+		this->secondSize = secondSize_;
+	};
+
+	element(){
+		this->firstSize = NULL;
+		this->secondSize = NULL;
+		this->typeOfQuad = -1;
+	};
+
+	element(short TYPE, T FIRSTSIZE, T SECONDSIZE){
+		std::cout << "---Вызов конструктора---" << std::endl;
+		std::cout << " Вызвал: " << TYPE << " с параметрами " << FIRSTSIZE
+			<< ", " << SECONDSIZE << std::endl;
+
+		if (FIRSTSIZE < 0)
+			std::cout << "First size is incorrect: " << FIRSTSIZE << std::endl;
+
+		else if (SECONDSIZE < 0)
+			std::cout << "Second size is incorrect: " << SECONDSIZE 
+				<< std::endl;
+
+		else if ((TYPE == RECTANGLE) && (FIRSTSIZE == SECONDSIZE)) // проверка на правильность сторон прямоугольника
+			std::cout << "If it's rectangle, firstSize must be != secondSize"
+				<< std::endl;
+
+		else if ((TYPE == FOURSQUARE) && (FIRSTSIZE != SECONDSIZE)) // проверка на равенство сторон квадрата
+			std::cout << "If it's foursquare, firstSize must be == secondSize"
+			<< std::endl;
+
+		else if ((TYPE < RECTANGLE) || (TYPE > RHOMBUS))
+			std::cout << "Type of quadrilateral is incorrect: allowed only \
+						 RECTANGLE, FOURSQUARE, RHOMBUS." << std::endl;
+
+		this->firstSize = FIRSTSIZE;
+		this->secondSize = SECONDSIZE;
+		this->typeOfQuad = TYPE;
+
+		std::cout << "---Конец работы конструктора---" << std::endl << std::endl;
+	};
+
+	element(const element& copy){
+		this->typeOfQuad = copy.typeOfQuad;
+		this->firstSize = copy.firstSize;
+		this->secondSize = copy.secondSize;
+	};
+
+private:
+	short typeOfQuad;															// тип четырёхугольника через enum (0 - прямоугольник)
+	T firstSize;																// ширина четырёхугольника или длина 1-й диагонали ромба
+	T secondSize;																// высота четырёхугольника или длина 2-й диагонали ромба
+};
+
+
+
+
+
 template <class T>
 class quadTemplate{
 
@@ -123,7 +210,7 @@ public:
 	double perimeterOfQuadrangle(T quad){				// периметр фигуры
 		if (quad.getType() == quadrilateral::RHOMBUS)
 		{
-			return 4 * (sqrt((quad.getFirstSize() / 2)*(quad.getFirstSize() / 2)
+			return 4 * (sqrt((quad.getFirstSize() /2)*(quad.getFirstSize() / 2)
 				+ (quad.getSecondSize() / 2)*(quad.getSecondSize() / 2)));
 		};
 		return 2 * (quad.getFirstSize() + quad.getSecondSize());
@@ -140,26 +227,34 @@ public:
 		T* temp = &maxQuad.arr[0];
 
 		for (int i = 0; this->arr[i].getType() >= T::RECTANGLE
-			&& this->arr[i].getType() <= T::RHOMBUS; i++)
-		{
-			if (this->arr[i].getType() == T::RECTANGLE)
-			{
-				if (maxQuad.areaOfQuadrangle(temp[0]) < this->areaOfQuadrangle(arr[i]))
-					temp[0] = this->arr[i];
+			 && this->arr[i].getType() <= T::RHOMBUS; i++){
+
+			if (this->arr[i].getType() == T::RECTANGLE){
+				if (maxQuad.areaOfQuadrangle(temp[0]) 
+					< this->areaOfQuadrangle(arr[i])) {
+						temp[0] = arr[i];
+				}
 			}
-			else if (this->arr[i].getType() == T::FOURSQUARE)
-			{
-				if (maxQuad.areaOfQuadrangle(temp[1]) < this->areaOfQuadrangle(arr[i])) temp[1] = this->arr[i];
+			else if (this->arr[i].getType() == T::FOURSQUARE){
+				if (maxQuad.areaOfQuadrangle(temp[1]) 
+					< this->areaOfQuadrangle(arr[i])) 
+						temp[1] = this->arr[i];
 			}
-			else if (this->arr[i].getType() == T::RHOMBUS)
-			{
-				if (maxQuad.areaOfQuadrangle(temp[2]) < this->areaOfQuadrangle(arr[i])) temp[2] = this->arr[i];
+			else if (this->arr[i].getType() == T::RHOMBUS){
+				if (maxQuad.areaOfQuadrangle(temp[2]) 
+					< this->areaOfQuadrangle(arr[i])) 
+						temp[2] = this->arr[i];
 			};
 		};
 
-		std::cout << "Max rectangle has an area " << maxQuad.areaOfQuadrangle(temp[0]) << std::endl;
-		std::cout << "Max foursquare has an area " << maxQuad.areaOfQuadrangle(temp[1]) << std::endl;
-		std::cout << "Max rhombus has an area " << maxQuad.areaOfQuadrangle(temp[2]) << std::endl << std::endl;
+		std::cout << "Max rectangle has an area " 
+			<< maxQuad.areaOfQuadrangle(temp[0]) << std::endl;
+
+		std::cout << "Max foursquare has an area " 
+			<< maxQuad.areaOfQuadrangle(temp[1]) << std::endl;
+
+		std::cout << "Max rhombus has an area " 
+			<< maxQuad.areaOfQuadrangle(temp[2]) << std::endl << std::endl;
 	};
 
 	~quadTemplate(){									// деструктор
