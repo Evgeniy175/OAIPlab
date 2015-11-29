@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "ShowLR.h"
+#include "..\4. OOP6R\exception.h"
 
 void show1and2LabRyabchenko()
 {
@@ -109,10 +110,11 @@ void show3and4LabRyabchenko()
 
 	ctr->showList(tvVar->getList());			// вывести весь список
 
+	/* вывести количество advertising*/
 	std::cout << std::endl << "Number of advertising: " 
-		<< ctr->numberOfAdv(tvVar->getList()) << std::endl;	// вывести количество advertising
+		<< ctr->numberOfAdv(tvVar->getList()) << std::endl;	
 
-	std::list<base*> comboTemp = ctr->searchFilmInYear(tvVar->getList(), 1990);	
+	std::list<base*> comboTemp = ctr->searchFilmInYear(tvVar->getList(), 1990);
 	ctr->showList(comboTemp);				// вывести фильмы 1990 года
 	ctr->getDuration(tvVar->getList());		// продолжительность программы
 };
@@ -121,81 +123,197 @@ void show3and4LabRyabchenko()
 
 void show6LabRyabchenko()
 {
-	std::cout << "int:" << std::endl;
-	{
-		set<int>* firstSet = new set<int>(8, 2, 4, 6, 8, 10, 12, 14, 16);
-		set<int>* secondSet = new set<int>(4, 1, 2, 3, 4);
-		set<int>* thirdSet = new set<int>(3, 2, 10, 16);
+	set<int>* intTempSet;
+	set<double>* doubleTempSet;
+	quadTemplate<element<int>>* intClass;
+	quadTemplate<element<double>>* doubleClass;
+	
+	try{
+		set<int>* intSet1 = new set<int>(8, 2, 4, 6, 8, 10, 12, 14, 16);
+		set<int>* intSet2 = new set<int>(4, 1, 2, 3, 4);
+		set<int>* intSet3 = new set<int>(3, 2, 10, 16);
+		set<double>* doubleSet1 = new set<double>(8, 2.15, 4.7, 6.356, 8.356,
+			10.56, 12.4, 14.3, 16.2);
+		set<double>* doubleSet2 = new set<double>(4, 16.2, 8.21, 8.356, 10.56);
+		set<double>* doubleSet3 = new set<double>(3, 6.356, 10, 14.3);
 
-		if (*firstSet > (*thirdSet)[2]) // проверка, содержится ли элемент 6 в множестве firstSet
-			std::cout <<(*firstSet)[2] << " included in firstSet" << std::endl;
-		
-		set<int>* firstTempSet = (*firstSet)*(*secondSet);		// пересечение множеств
+		///////////////////////////////////////////////////////////////////////
 
-		if ((*firstSet) < (*thirdSet))	// проверка, является ли thirdSet подмножеством firstSet
+		std::cout << "int:" << std::endl;
+
+		if (*intSet1 > (*intSet3)[2])	// (*intSet3)[2] принадлежит intSet1?
+			std::cout << (*intSet1)[2] << " included in firstSet" << std::endl;
+
+		intTempSet = (*intSet1)*(*intSet2);				// пересечение множеств
+
+		if ((*intSet1) < (*intSet3))	// intSet3 подмножество intSet1?
 			std::cout << "thirdSet is a subset of a firstSet" << std::endl;
 
 		else
 			std::cout << "thirdSet is NOT a subset of a firstSet" << std::endl;
 
-		delete firstSet;
-		delete secondSet;
-		delete thirdSet;
-		delete firstTempSet;
-	};
+		std::cout << "min: " << intSet1->getMin() << std::endl << std::endl;
 
-	std::cout << "double:" << std::endl;
-	{
-		set<double>* firstSet	= new set<double>(
-			8, 2.15, 4.7, 6.356, 8.356, 10.56, 12.4, 14.3, 16.2);
+		///////////////////////////////////////////////////////////////////////
 
-		set<double>* secondSet	= new set<double>(4, 16.2, 8.21, 8.356, 10.56);
-		set<double>* thirdSet	= new set<double>(3, 6.356, 10, 14.3);
+		std::cout << "double:" << std::endl;
 
-		if (*firstSet > (*secondSet)[0]) // проверка, содержится ли элемент 6 в множестве firstSet
-			std::cout << (*secondSet)[0] << " included in firstSet" 
-				<< std::endl;
+		/*(*doubleSet2)[0] принадлежит doubleSet1?*/
+		if (*doubleSet1 > (*doubleSet2)[0])	 
+			std::cout << (*doubleSet2)[0] << " included in firstSet" << std::endl;
 
-		set<double>* firstTempSet = (*firstSet)*(*secondSet);	// пересечение множеств
+		doubleTempSet = (*doubleSet1)*(*doubleSet2);	// пересечение множеств
 
-		if ((*firstSet) < (*thirdSet)) // проверка, является ли thirdSet подмножеством firstSet
+		if ((*doubleSet1) < (*doubleSet3))	// doubleSet3 подмн. doubleSet1?
 			std::cout << "thirdSet is a subset of a firstSet" << std::endl;
 
-		else	
-			std::cout << "thirdSet is NOT a subset of a firstSet"
-				<< std::endl;
+		else 
+			std::cout << "thirdSet is NOT a subset of a firstSet" << std::endl;
 
-		delete firstSet;
-		delete secondSet;
-		delete thirdSet;
-		delete firstTempSet;
-	};
+		std::cout << "min: " << doubleSet1->getMin() << std::endl << std::endl;
+		
+		///////////////////////////////////////////////////////////////////////
+		// class as parameter
 
-	// class as parameter
-	std::cout << std::endl << std::endl;
-	{
-		quadTemplate<element<int>>* newArr = new quadTemplate<element<int>>(
+		intClass = new quadTemplate<element<int>>(
 			3,
 			element<int>(quadrilateral::RECTANGLE, 2, 5),
 			element<int>(quadrilateral::FOURSQUARE, 3, 3),
 			element<int>(quadrilateral::RHOMBUS, 3, 5)
 			);
 
-		newArr->showMaxVal();
+		std::cout << "!!!min firstSize: " << intClass->getMinFirstSize()->getFirstSize()
+			<< std::endl << std::endl;
 
-		delete newArr;
-	}
-
-	{
-		quadTemplate<element<double>>* newArr = new quadTemplate<element<double>>(
+		intClass->showMaxVal();
+		
+		///////////////////////////////////////////////////////////////////////
+		
+		doubleClass = new quadTemplate<element<double>>(
 			3,
-			element<double>(quadrilateral::RECTANGLE, 2.123, 5.456),
-			element<double>(quadrilateral::FOURSQUARE, 3.789, 3.654),
+			element<double>(quadrilateral::RECTANGLE, -5, 5.456),
+			element<double>(quadrilateral::FOURSQUARE, 3.789, 3.789),
 			element<double>(quadrilateral::RHOMBUS, 3456.879, 5.321)
 			);
 
-		newArr->showMaxVal();
+		std::cout << "!!!min firstSize: " << doubleClass->getMinFirstSize()->getFirstSize()
+			<< std::endl << std::endl;
 
-		delete newArr;
+		doubleClass->showMaxVal();
+
+		///////////////////////////////////////////////////////////////////////
+
+		delete intSet1;
+		delete intSet2;
+		delete intSet3;
+		delete doubleSet1;
+		delete doubleSet2;
+		delete doubleSet3;
+	}
+	catch (ERROR::Error error){
+		std::cerr << error.getMsg();
+	};
+};
+
+void show10LabRyabchenko(){
+	{
+		std::cout << std::endl << "---Map start---" << std::endl;
+
+		MC::Map firstMap(5, 100, 2000, 300, 4000, 500);
+		MC::Map secondMap(3, 9000, 10000, 11000);
+
+		firstMap.show();
+		firstMap.erase(4000);
+		firstMap.showViaIt();
+		firstMap.change(100, 103050);
+		firstMap.showViaIt();
+		firstMap.eraseFrom(300, 1);
+		firstMap.show();
+		firstMap.add(secondMap);
+
+		std::cout << std::endl << "first map: ";
+		firstMap.showViaIt();
+		std::cout << "second map: ";
+		secondMap.showViaIt();
+
+		std::cout << "---Map end---" << std::endl << std::endl;
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+
+	{
+		set<long> temp1First(4, 123, 456, 789, 369);
+		set<long> temp2First(4, 321, 654, 987, 963);
+
+		std::cout << std::endl << "---Map start---" << std::endl;
+
+		MC_USER::Map firstMap;
+
+		firstMap >> std::pair<long, set<long>*>(123, &temp1First);
+		firstMap >> std::pair<long, set<long>*>(321, &temp2First);
+
+		firstMap << 123;
+		firstMap << 321;
+
+		firstMap.eraseFrom(123, 1);
+
+		std::cout << "---Map end---" << std::endl << std::endl;
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+
+	{
+		int condCount = 0; // counter for good condition
+		std::vector<THIRD::UserClass> vectorTemp;
+		std::list<THIRD::UserClass> listTemp;
+		char conditionLimiter = 'x';
+
+		THIRD::Third thirdVar(3, THIRD::UserClass('z'), THIRD::UserClass('a'), THIRD::UserClass('q'));
+		thirdVar.copyElements(vectorTemp, conditionLimiter);
+
+		std::cout << "1. map: ";
+		for_each (thirdVar.getBegin(), thirdVar.getEnd(),
+			[](std::pair<long, THIRD::UserClass> i){
+				std::cout << i.second.getChar() << ' ';
+			}
+		);
+
+		std::cout << std::endl << "2. vector: ";
+		for_each(vectorTemp.begin(), vectorTemp.end(),
+			[](THIRD::UserClass i){
+				std::cout << i.getChar() << ' '; 
+			}
+		);
+		
+		// выводим map
+		std::cout << std::endl;
+		for_each(thirdVar.getBegin(), thirdVar.getEnd(),
+			[&listTemp](std::pair<long, THIRD::UserClass> i){
+				listTemp.push_back(i.second);
+			}
+		);
+
+		// формируем list
+		for_each(vectorTemp.begin(), vectorTemp.end(),
+			[&listTemp](THIRD::UserClass i){
+				listTemp.push_back(i);
+			}
+		);
+
+		// считаем количество удовлетворяющих условию в list и выводим его
+		// содержимое
+		std::cout << "3. list: ";
+		for_each(listTemp.begin(), listTemp.end(),
+			[&condCount, conditionLimiter](THIRD::UserClass i){
+				if (i.getChar() < conditionLimiter){
+					condCount++;
+				};
+				std::cout << i.getChar() << ' ';
+			}
+		);
+
+		std::cout << std::endl << "Удовлетворяют условию CHAR<"
+			<< conditionLimiter << " (в третьем контейнере): " << condCount
+			<< std::endl;
 	}
 };

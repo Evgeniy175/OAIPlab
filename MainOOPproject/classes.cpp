@@ -11,8 +11,8 @@ quadrilateral::quadrilateral()
 
 quadrilateral::quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE)
 {
-	std::cout << "---Вызов конструктора---" << std::endl;
-	std::cout << " Вызвал: " << TYPE << " с параметрами " << FIRSTSIZE << ", " << SECONDSIZE << std::endl;
+	std::cout << "---Вызов конструктора---" << std::endl << " Вызвал: " << TYPE
+		<< " с параметрами " << FIRSTSIZE << ", " << SECONDSIZE << std::endl;
 
 	if (FIRSTSIZE < 0)
 		std::cout << "First size is incorrect: " << FIRSTSIZE << std::endl;
@@ -20,14 +20,17 @@ quadrilateral::quadrilateral(short TYPE, double FIRSTSIZE, double SECONDSIZE)
 	else if (SECONDSIZE < 0)
 		std::cout << "Second size is incorrect: " << SECONDSIZE << std::endl;
 
-	else if ((TYPE == RECTANGLE) && (FIRSTSIZE == SECONDSIZE)) // проверка на правильность сторон прямоугольника
-		std::cout << "If it's rectangle, firstSize must be != secondSize" << std::endl;
+	else if ((TYPE == RECTANGLE) && (FIRSTSIZE == SECONDSIZE))
+		std::cout << "If it's rectangle, firstSize must be != secondSize"
+		<< std::endl;
 	
-	else if ((TYPE == FOURSQUARE) && (FIRSTSIZE != SECONDSIZE)) // проверка на равенство сторон квадрата
-		std::cout << "If it's foursquare, firstSize must be == secondSize" << std::endl;
+	else if ((TYPE == FOURSQUARE) && (FIRSTSIZE != SECONDSIZE))
+		std::cout << "If it's foursquare, firstSize must be == secondSize"
+		<< std::endl;
 	
 	else if ((TYPE < RECTANGLE) || (TYPE > RHOMBUS))
-		std::cout << "Type of quadrilateral is incorrect: allowed only RECTANGLE, FOURSQUARE, RHOMBUS." << std::endl;
+		std::cout << "Type of quadrilateral is incorrect: allowed only \
+					 RECTANGLE, FOURSQUARE, RHOMBUS." << std::endl;
 	
 	else{
 		this->firstSize = FIRSTSIZE;
@@ -46,7 +49,8 @@ quadrilateral::quadrilateral(const quadrilateral& copy){
 
 arrOfQuadrangles::arrOfQuadrangles() {}
 
-arrOfQuadrangles::arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...){
+arrOfQuadrangles::arrOfQuadrangles(int count, 
+	quadrilateral firstQuadrangle, ...){
 	this->sizeOfArray = count;
 	this->mainQuadrangleVar = new quadrilateral[this->sizeOfArray];
 
@@ -56,20 +60,21 @@ arrOfQuadrangles::arrOfQuadrangles(int count, quadrilateral firstQuadrangle, ...
 		this->mainQuadrangleVar[i] = *(temp + i);
 }
 
-
-double arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle){ // площадь фигуры
+/*площадь фигуры*/
+double arrOfQuadrangles::areaOfQuadrangle(quadrilateral quadrangle){
 	if (quadrangle.getType() == quadrilateral::RHOMBUS)
 		return ((quadrangle.getFirstSize()*quadrangle.getSecondSize()) / 2);
 
 	return (quadrangle.getFirstSize())*(quadrangle.getSecondSize());
 };
 
-
-double arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle){ // периметр фигуры
+/*периметр фигуры*/
+double arrOfQuadrangles::perimeterOfQuadrangle(quadrilateral quadrangle){
 	if (quadrangle.getType() == quadrilateral::RHOMBUS)
 	{
-		return 4 * (sqrt((quadrangle.getFirstSize() / 2)*(quadrangle.getFirstSize() / 2)
-			   + (quadrangle.getSecondSize() / 2)*(quadrangle.getSecondSize() / 2)));
+		return 4 * (sqrt((quadrangle.getFirstSize() / 2)
+			*(quadrangle.getFirstSize() / 2) + (quadrangle.getSecondSize() / 2)
+			*(quadrangle.getSecondSize() / 2)));
 	};
 	return 2 * (quadrangle.getFirstSize() + quadrangle.getSecondSize());
 };
@@ -84,27 +89,35 @@ void arrOfQuadrangles::showMaxVal(){ // поиск и вывод максима�
 
 	quadrilateral* temp = &maxQuad.mainQuadrangleVar[0];
 
-	for (int i = 0; this->mainQuadrangleVar[i].getType() >= quadrilateral::RECTANGLE 
-			&& this->mainQuadrangleVar[i].getType() <= quadrilateral::RHOMBUS; i++)
-	{
-		if (this->mainQuadrangleVar[i].getType() == quadrilateral::RECTANGLE)
-		{
-			if (maxQuad.areaOfQuadrangle(temp[0]) < this->areaOfQuadrangle(mainQuadrangleVar[i]))
+	for (int i = 0;
+		this->mainQuadrangleVar[i].getType() >= quadrilateral::RECTANGLE 
+			&& this->mainQuadrangleVar[i].getType() 
+			<= quadrilateral::RHOMBUS; i++){
+		if (this->mainQuadrangleVar[i].getType() == quadrilateral::RECTANGLE){
+			if (maxQuad.areaOfQuadrangle(temp[0])
+				< this->areaOfQuadrangle(mainQuadrangleVar[i]))
 				temp[0] = this->mainQuadrangleVar[i];
 		}
-		else if (this->mainQuadrangleVar[i].getType() == quadrilateral::FOURSQUARE)
-		{
-			if (maxQuad.areaOfQuadrangle(temp[1]) < this->areaOfQuadrangle(mainQuadrangleVar[i])) temp[1] = this->mainQuadrangleVar[i];
+		else if (this->mainQuadrangleVar[i].getType()
+			== quadrilateral::FOURSQUARE){
+			if (maxQuad.areaOfQuadrangle(temp[1])
+				< this->areaOfQuadrangle(mainQuadrangleVar[i]))
+				temp[1] = this->mainQuadrangleVar[i];
 		}
-		else if (this->mainQuadrangleVar[i].getType() == quadrilateral::RHOMBUS)
-		{
-			if (maxQuad.areaOfQuadrangle(temp[2]) < this->areaOfQuadrangle(mainQuadrangleVar[i])) temp[2] = this->mainQuadrangleVar[i];
+		else if (this->mainQuadrangleVar[i].getType()
+			== quadrilateral::RHOMBUS){
+			if (maxQuad.areaOfQuadrangle(temp[2])
+				< this->areaOfQuadrangle(mainQuadrangleVar[i]))
+				temp[2] = this->mainQuadrangleVar[i];
 		};
 	};
 
-	std::cout << "Max rectangle has an area " << maxQuad.areaOfQuadrangle(temp[0]) << std::endl;
-	std::cout << "Max foursquare has an area " << maxQuad.areaOfQuadrangle(temp[1]) << std::endl;
-	std::cout << "Max rhombus has an area " << maxQuad.areaOfQuadrangle(temp[2]) << std::endl << std::endl;
+	std::cout << "Max rectangle has an area " 
+		<< maxQuad.areaOfQuadrangle(temp[0]) << std::endl;
+	std::cout << "Max foursquare has an area " 
+		<< maxQuad.areaOfQuadrangle(temp[1]) << std::endl;
+	std::cout << "Max rhombus has an area " 
+		<< maxQuad.areaOfQuadrangle(temp[2]) << std::endl << std::endl;
 };
 
 arrOfQuadrangles::arrOfQuadrangles(const arrOfQuadrangles& copy)
@@ -121,7 +134,8 @@ arrOfQuadrangles::arrOfQuadrangles(const arrOfQuadrangles& copy)
 arrOfQuadrangles::~arrOfQuadrangles()
 {
 	std::cout << "---Начало работы деструктора---" << std::endl;
-	std::cout << " Удаление массива, содержащего " << this->sizeOfArray << " объектов" << std::endl;
+	std::cout << " Удаление массива, содержащего " << this->sizeOfArray
+		<< " объектов" << std::endl;
 
 	delete[] mainQuadrangleVar;
 
