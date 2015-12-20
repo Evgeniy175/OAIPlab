@@ -216,6 +216,7 @@ void show6LabRyabchenko()
 };
 
 void show10LabRyabchenko(){
+	
 	{
 		std::cout << std::endl << "---Map start---" << std::endl;
 
@@ -266,6 +267,7 @@ void show10LabRyabchenko(){
 		int condCount = 0; // counter for good condition
 		std::vector<THIRD::UserClass> vectorTemp;
 		std::list<THIRD::UserClass> listTemp;
+
 		char conditionLimiter = 'x';
 
 		THIRD::Third thirdVar(3, THIRD::UserClass('z'), THIRD::UserClass('a'), THIRD::UserClass('q'));
