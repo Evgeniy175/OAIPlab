@@ -8,8 +8,8 @@ public:
 	CMyWinApp(){}
 
 	virtual BOOL InitInstance(){
-		std::wstring MsgFromDll;						// в эту переменную будет помещено сообщение из функции DLL
-		CMy82DLL* classObj = Create();
+		std::wstring MsgFromDll;			// дл€ хранени€ сообщени€
+		CMy82DLL* classObj = Create();		// объект класса, объ€вленного в dll
 		
 		if (classObj == NULL){
 			AfxMessageBox(L"No class object");
@@ -17,7 +17,7 @@ public:
 		};
 
 		MsgFromDll = L"From class using .lib:\n";
-		classObj->getDrives(&MsgFromDll);
+		classObj->getDrives(&MsgFromDll);							// вызов метода дл€ класса из dll
 		AfxMessageBox(const_cast<TCHAR*>(MsgFromDll.c_str()));		// снимаем константность и выводим в MessageBox
 
 		return TRUE;
