@@ -11,10 +11,10 @@ public:
 	virtual BOOL InitInstance(){
 		std::wstring MsgFromDll;		// дл€ хранени€ сообщени€
 		CMy82DLL* classObj;				// объект класса, объ€вленного в dll
-		pGetDrivesType pGetDrives;		// будет помещен указатель на функцию из dll
-		pCreateType pCreate;			// будет помещен указатель на функцию из dll
+		pGetDrivesType pGetDrives;		// дл€ хранени€ указател€ на функцию из dll
+		pCreateType pCreate;			// дл€ хранени€ указател€ на функцию из dll
 
-		HMODULE hDll = AfxLoadLibrary(L"8.2 DLL.dll");	// загрузка DLL
+		HMODULE hDll = AfxLoadLibrary(L"8.2 DLL.dll");	// загрузка dll
 
 		if (hDll == NULL){
 			AfxMessageBox(L"Error on DLL load");
@@ -45,7 +45,7 @@ public:
 			return FALSE;
 		};
 
-		classObj = pCreate();
+		classObj = pCreate();	// вызов функции из dll
 		MsgFromDll = L"From class:\n";
 		classObj->getDrives(&MsgFromDll);
 		AfxMessageBox(const_cast<TCHAR*>(MsgFromDll.c_str()));		// снимаем константность и выводим в MessageBox
