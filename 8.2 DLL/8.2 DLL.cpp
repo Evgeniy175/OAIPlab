@@ -7,7 +7,7 @@ MY82DLL_API void GetDrives(std::wstring* str){
 
 	*str += L"Logical Drives:";
 	for (int i = 0; i < ALPABET_SIZE; i++){
-		if (MyDrives[i] == true){	// true - диск с таким именем присутствует
+		if (MyDrives[i]){			// true - диск с таким именем присутствует
 			*str += '\n';			// новая строка
 			buff = i + 0x41;		// смещение на заглавные буквы
 			*str += buff;			// добавляем имя диска в выходное сообщение
