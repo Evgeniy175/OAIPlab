@@ -61,7 +61,7 @@ public:
 		return this->arr_[i];
 	};
 
-	friend set<T>* operator* (set<T>& first, set<T>& second){
+	set<T>* operator* (set<T>& first, set<T>& second){
 		int arrSize = first.powerSet() > second.powerSet() 
 			? first.powerSet() : second.powerSet();
 
